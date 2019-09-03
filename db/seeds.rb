@@ -19,7 +19,7 @@ puts "Users were created......"
 Journey.create(user: User.all.sample, name: "Lisbon to Paris - time for romance", start_city: "Lisbon, Portugal", end_city: "Paris, France", archived: false)
 Journey.create(user: User.all.sample, name: "Copenhagen to Rome - easter holidays", start_city: "Copenhagen, Denmark", end_city: "Rome, Italy", archived: false)
 Journey.create(user: User.all.sample, name: "Central Europe journey", start_city: "Warsaw, Poland", end_city: "Ljubljana, Slovenia", archived: true)
-Journey.create(user: User.all.sample, name: "Central Europe journey", start_city: "Berlin, Germany", end_city: "Brussels, Belgium", archived: true)
-Journey.create(user: User.all.sample, name: "Central Europe journey", start_city: "Madrid, Spain", end_city: "Bruxelles", archived: true)
-Journey.create(user: User.all.sample, name: "Central Europe journey", start_city: "Sevilla, Spain", end_city: "Amsterdam", archived: true)
+Journey.create(user: User.all.sample, name: "Easter travel", start_city: "Berlin, Germany", end_city: "Brussels, Belgium", archived: true)
+Journey.create(user: User.all.sample, name: "Moving time...", start_city: "Madrid, Spain", end_city: "Bruxelles", archived: false)
+Journey.create(user: User.all.sample, name: "Gotta get some goodies", start_city: "Sevilla", end_city: "Amsterdam", archived: false)
 puts "Creating journeys......."
