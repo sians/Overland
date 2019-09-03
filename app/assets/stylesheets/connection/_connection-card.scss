@@ -1,0 +1,30 @@
+.connection-card {
+  display: block;
+}
+
+.connection-card-top {
+height: 45px;
+width: 350px;
+background: #F7F7F7;
+display: flex;
+justify-content: space-between;
+padding-top: 10px;
+}
+
+.connection-card-bottom {
+  height: 300px;
+  width: 350px;
+  background: white;
+}
+
+.btn-book {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #E0A9AA;
+}
+
+.btn-book:hover {
+  background: #E0A9AA;
+  color: white;
+}

@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 70px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.overland-logo {
+  color: #E0A9AA;
+  padding-top: 15px;
+  font-size: 32px;
+  padding-left: 30px;
+}
+
+.nav-item {
+padding-right: 30px;
 }
