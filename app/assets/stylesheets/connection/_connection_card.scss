@@ -1,3 +1,7 @@
+.main-container {
+  padding-top:70px;
+}
+
 .connection-card {
   display: block;
   width: 420px;
@@ -5,15 +9,17 @@
 }
 
 .connection-card-top {
-  height: 45px;
-  background: #F7F7F7;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
+height: 45px;
+width: 365px;
+background: #F7F7F7;
+display: flex;
+justify-content: space-between;
+padding-top: 10px;
 }
 
 .connection-card-bottom {
-  height: 330px;
+  height: 300px;
+  width: 365px;
   background: white;
 }
 
@@ -27,4 +33,33 @@
 .btn-book:hover {
   background: #E0A9AA;
   color: white;
+}
+
+.connection-city {
+  height: 70px;
+  display: block;
+  font-size: 13px;
+  padding-left: 100px;
+}
+
+.connection-detail {
+  height: 245px;
+  padding-top: 50px;
+}
+
+.duration {
+  padding-left: 250px;
+  padding-bottom: 10px;
+}
+
+.station {
+  font-size: 20px;
+}
+
+.button-book {
+  padding-left: 205px;
+}
+
+.price {
+  padding-right: 80px;
 }
