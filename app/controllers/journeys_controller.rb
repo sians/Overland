@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :fetch_journey, only: %i[show edit update destroy]
+  before_action :fetch_journey, only: %i[show edit destroy]
 
   def index
     @journeys = current_user.journey.all
@@ -11,11 +11,13 @@ class UsersController < ApplicationController
 
   def new
     @journey = Journey.new
+    authorize @journey
   end
 
   def create
     @journey = Journey.new(journey_params)
     @journey.user = current_user
+    authorize @journey
     #...
   end
 
