@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_131953) do
+ActiveRecord::Schema.define(version: 2019_09_03_143946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "connections", force: :cascade do |t|
+    t.string "name"
+    t.string "transport_type"
+    t.string "provider"
+    t.string "provider_website"
+    t.boolean "booking_status"
+    t.decimal "cost"
+    t.string "origin_city"
+    t.string "destination_city"
+    t.bigint "journey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["journey_id"], name: "index_connections_on_journey_id"
+  end
 
   create_table "journeys", force: :cascade do |t|
     t.string "name"
@@ -42,5 +57,6 @@ ActiveRecord::Schema.define(version: 2019_09_03_131953) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "connections", "journeys"
   add_foreign_key "journeys", "users"
 end

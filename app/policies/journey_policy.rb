@@ -5,8 +5,16 @@ class JourneyPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def create?
     true
+  end
+
+  def show?
+    record.user == user
   end
 
   def update?
