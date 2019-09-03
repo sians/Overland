@@ -24,12 +24,11 @@ class UsersController < ApplicationController
   end
 
   def update
-
   end
 
   def destroy
     # @user.delete
-      end
+  end
 
   private
 
@@ -41,12 +40,4 @@ class UsersController < ApplicationController
   def journey_params
     params.require(:journey).permit(name, start_city, end_city, booking_status, archived)
   end
-
-
 end
-
-
-
-
-end
-
