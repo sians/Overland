@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_095431) do
+ActiveRecord::Schema.define(version: 2019_09_03_143946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "connections", force: :cascade do |t|
+    t.string "name"
+    t.string "transport_type"
+    t.string "provider"
+    t.string "provider_website"
+    t.boolean "booking_status"
+    t.decimal "cost"
+    t.string "origin_city"
+    t.string "destination_city"
+    t.bigint "journey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["journey_id"], name: "index_connections_on_journey_id"
+  end
+
+  create_table "journeys", force: :cascade do |t|
+    t.string "name"
+    t.string "start_city"
+    t.string "end_city"
+    t.string "booking_status"
+    t.boolean "archived"
+    t.bigint "user_id"
+    t.integer "total_cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_journeys_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +57,6 @@ ActiveRecord::Schema.define(version: 2019_09_03_095431) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "connections", "journeys"
+  add_foreign_key "journeys", "users"
 end
