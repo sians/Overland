@@ -1,0 +1,31 @@
+
+.route-card {
+  padding: 10px;
+  border-color: #F7F7F7;
+  border-radius: 5px;
+  width: 425px;
+
+  p {
+    text-align: end;
+    margin: 0px;
+    padding: 10px;
+    padding-right: 20px;
+    color: #9CB4BE;
+  }
+}
+
+.route-card-top {
+  display: block;
+  background-color: #F7F7F7;
+  height: 45px;
+}
+
+.route-card-bottom {
+  display: flex;
+  background-color: $white;
+  height: 80px;
+
+  i {
+    margin: auto;
+  }
+}

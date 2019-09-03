@@ -1,19 +1,19 @@
 .connection-card {
   display: block;
+  width: 420px;
+  border: 2px solid #F7F7F7;
 }
 
 .connection-card-top {
-height: 45px;
-width: 350px;
-background: #F7F7F7;
-display: flex;
-justify-content: space-between;
-padding-top: 10px;
+  height: 45px;
+  background: #F7F7F7;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
 .connection-card-bottom {
-  height: 300px;
-  width: 350px;
+  height: 330px;
   background: white;
 }
 
