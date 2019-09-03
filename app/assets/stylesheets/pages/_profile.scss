@@ -1,0 +1,16 @@
+ul.nav-tabs {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  border-bottom: 1px solid $red;
+
+  li {
+    display: inline-block;
+    border-bottom: 1px solid $red;
+  }
+
+    li:hover {
+      cursor: pointer;
+      background-color: $red;
+    }
+}

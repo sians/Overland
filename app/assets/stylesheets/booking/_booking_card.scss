@@ -1,0 +1,65 @@
+
+.booking-card {
+  width: 800px;
+  height: 100px;
+  display: flex;
+  background-color: $white;
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: #F7F7F7;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.booking-card-img {
+  display: block;
+  padding: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+    img {
+    position: absolute;
+    left: 3.38%;
+    right: 89.75%;
+    top: 22%;
+    bottom: 23%;
+  }
+}
+
+.booking-card-text {
+  margin-left: 20px;
+}
+
+.booking-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-checkbox {
+  display: block;
+  margin: auto;
+  padding-left: 350px;
+
+  input[type=text] {
+    width: 85px;
+    height: 50px;
+    background: rgba(224, 169, 170, 0.25);
+    border-radius: 8px;
+  }
+}
+
+#booking-price {
+  color: grey;
+}
+
+#booking-station {
+  color: $black;
+}
+
+#booking-source {
+  color: $light-gray;
+}
+
