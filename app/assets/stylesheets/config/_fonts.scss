@@ -14,3 +14,29 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+.date  {
+padding-left: 15px;
+font-family: Sofia Pro;
+font-size: 13px;
+font-weight: bold;
+line-height: 13px;
+/* identical to box height */
+letter-spacing: -0.03em;
+color: #000000;
+display: flex;
+align-items: flex-end;
+}
+
+.price {
+font-family: Sofia Pro;
+font-size: 17px;
+line-height: 17px;
+/* identical to box height */
+letter-spacing: -0.05em;
+text-transform: uppercase;
+padding-right: 15px;
+color: #939090;
+display: flex;
+align-items: flex-end;
+}
