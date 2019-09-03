@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
-  before_action :fetch_journey, only: %i[show new edit destroy]
+  before_action :fetch_journey, only: %i[show edit destroy]
 
   def show
+  end
+
+  def new
+    @journey = Journey.new
+    authorize @journey
   end
 
   def create
     @journey = Journey.new(journey_params)
     @journey.user = current_user
+    authorize @journey
     #...
   end
 
@@ -24,10 +30,11 @@ class UsersController < ApplicationController
 
   def fetch_journey
     @journey = Journey.find(params[:id])
+    authorize @journey
   end
 
   def journey_params
-    params.require(:journey).permit(name, start_city, end_city, archived)
+    params.require(:journey).permit(name, start_city, end_city, booking_status, archived)
   end
 
 
