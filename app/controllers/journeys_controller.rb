@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :fetch_journey, only: %i[show edit update destroy]
 
   def index
-    @journeys = policy_scope(Journey).order(created_at: :desc)
+    @journeys = current_user.journey.all
   end
 
   def show
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   def create
     @journey = Journey.new(journey_params)
-
     @journey.user = current_user
     #...
   end
