@@ -1,1 +1,28 @@
-_button.scss
+.btn-book {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 5px;
+  background: #E0A9AA;
+}
+
+.btn-book:hover {
+  background: #E0A9AA;
+  color: white;
+}
+
+.btn-go {
+  width: 100px;
+  padding: 10px;
+  background-color: #E0A9AA;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  width: 22%;
+  height: 40px;
+}
+
+.btn-go:hover {
+  color: white;
+  background-color: #E0A9AA;
+}
+
