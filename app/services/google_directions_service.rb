@@ -2,7 +2,7 @@
 class GoogleDirectionsService
   def initialize
     @base_url = "https://maps.googleapis.com/maps/api/directions/json?"
-    @api_key = ENV["GOOGLE_DIRECTIONS_API"]
+    @api_key = ENV['GOOGLE_DIRECTIONS_API']
   end
 
   def make_connection(step)
@@ -24,43 +24,49 @@ class GoogleDirectionsService
     return connection
   end
 
-  def get_route_connections(origin, destination)
-    routes = get_routes(origin, destination)
+  def get_route_connections(origin, destination, json = {})
+    routes = get_routes(origin, destination, json)
     parsed_routes = {}
 
-    routes.each_with_index do |route, index|
-      steps = route["legs"][0]["steps"]
+    routes.keys.each do |key|
+      steps = routes[key]["legs"][0]["steps"]
       connections = []
       steps.each do |step|
         connection = make_connection(step)
         connections << connection unless connection.empty?
       end
-      parsed_routes[index] = {
-        total_duration: route["legs"][0]["duration"]["text"],
-        total_distance: route["legs"][0]["distance"]["text"],
+      parsed_routes[key] = {
+        total_duration: routes[key]["legs"][0]["duration"]["text"],
+        total_distance: routes[key]["legs"][0]["distance"]["text"],
         num_connections: connections.size,
-        connections: connections,
-        google_route: route
+        connections: connections, #array
+        google_route: routes[key] #hash
       }
     end
     return parsed_routes
   end
 
-  def get_routes(origin, destination)
+
+  def get_routes(origin, destination, json)
     routes = {}
-    google_response = fetch_google_directions(origin, destination)
-    google_response["routes"].each_with_index do |route, index|
+    if json.nil? || json.empty?
+      json_response = fetch_google_directions(origin, destination)
+    else
+      json_response = json
+    end
+    json_response["routes"].each_with_index do |route, index|
       routes[index] = route
     end
+    routes
   end
 
   def fetch_google_directions(origin, destination)
-    url_string = "origin=#{origin}&destination=#{destination}&mode=transit&key=#{@api_key}"
+    url_string = "origin=#{origin}&destination=#{destination}&mode=transit&key=#{ENV["GOOGLE_DIRECTIONS_API"]}"
     full_query = "#{@base_url}#{url_string}"
     response = RestClient.get full_query
     JSON.parse(response)
   end
 end
 
-directions = GoogleDirectionsService.new
-x = directions.get_route_connections("Paris", "Hamburg")
+# directions = GoogleDirectionsService.new
+# x = directions.get_route_connections("Paris", "Hamburg")
