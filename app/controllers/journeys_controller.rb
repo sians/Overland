@@ -2,11 +2,10 @@ class UsersController < ApplicationController
   before_action :fetch_journey, only: %i[show edit update destroy]
 
   def index
-    @journeys = current_user.journey.all
+    @journeys = policy_scope(Journey).order(created_at: :desc)
   end
 
   def show
-    authorize @journey
   end
 
   def new
@@ -16,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @journey = Journey.new(journey_params)
     @journey.user = current_user
+    authorize @journey
     #...
   end
 
