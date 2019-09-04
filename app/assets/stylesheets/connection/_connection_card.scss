@@ -5,35 +5,39 @@
 
 .connection-card {
   display: block;
-  width: 420px;
+  width: 488px;
   border: 2px solid #F7F7F7;
-}
 
-.connection-card-top {
-height: 45px;
-width: 365px;
-background: #F7F7F7;
-display: flex;
-justify-content: space-between;
-padding-top: 10px;
-}
+  .connection-card-top {
+    height: 45px;
+    background: #F7F7F7;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
 
-.connection-card-bottom {
-  height: 300px;
-  width: 365px;
-  background: white;
-}
+    .price {
+    padding-right: 80px;
+    }
+  }
 
-.btn-book {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: #E0A9AA;
-}
+  .connection-card-bottom {
+    height: 300px;
+    background: white;
 
-.btn-book:hover {
-  background: #E0A9AA;
-  color: white;
+    .connection-detail {
+      height: 245px;
+      padding-top: 50px;
+    }
+
+    .duration {
+      padding-left: 250px;
+      padding-bottom: 10px;
+    }
+
+    .station {
+      font-size: 20px;
+    }
+  }
 }
 
 .connection-city {
@@ -43,24 +47,19 @@ padding-top: 10px;
   padding-left: 100px;
 }
 
-.connection-detail {
-  height: 245px;
-  padding-top: 50px;
-}
-
-.duration {
-  padding-left: 250px;
-  padding-bottom: 10px;
-}
-
-.station {
-  font-size: 20px;
-}
 
 .button-book {
-  padding-left: 205px;
-}
+  padding-left: 300px;
 
-.price {
-  padding-right: 80px;
+  .btn-book {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #E0A9AA;
+  }
+
+  &:hover {
+    background: #E0A9AA;
+    color: white;
+  }
 }

@@ -5,6 +5,9 @@ class PagesController < ApplicationController
 
   end
 
+  def connections
+  end
+
   def journey_results
     directions = GoogleDirectionsService.new
     current_user.storage = directions.fetch_google_directions(params[:start_city], params[:end_city])

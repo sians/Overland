@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class JourneysController < ApplicationController
   before_action :fetch_journey, only: %i[show edit update destroy]
 
   def index
