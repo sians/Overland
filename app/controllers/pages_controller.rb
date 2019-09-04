@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def journey_results
+
+  end
 end

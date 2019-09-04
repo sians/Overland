@@ -1,0 +1,11 @@
+<%= form_tag journey_results_path, method: :post do %>
+  <div class="form-inputs">
+    <%= text_field_tag :start_city, nil, placeholder: 'origin' %>
+    <%= text_field_tag :end_city, nil, placeholder: 'destination' %>
+  </div>
+
+  <div class="form-actions">
+    <%= submit_tag :submit, class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
