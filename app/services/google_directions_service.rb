@@ -2,7 +2,7 @@
 class GoogleDirectionsService
   def initialize
     @base_url = "https://maps.googleapis.com/maps/api/directions/json?"
-    @api_key = "AIzaSyAx4tUYlKCtVdaIPqdcMKcF0ZmjysUty3k"
+    @api_key = ENV["GOOGLE_DIRECTIONS_API"]
   end
 
   def make_connection(step)
