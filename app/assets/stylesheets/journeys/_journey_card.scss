@@ -9,7 +9,7 @@
     margin: 0px;
     padding: 10px;
     padding-right: 20px;
-    color: #9CB4BE;
+    color: $soft-blue;
   }
 
   h6 {
@@ -17,27 +17,28 @@
     margin: 0px;
     padding: 10px;
     padding-left: 20px;
-    color: #9CB4BE;
+    color: $soft-blue;
   }
-}
 
-.journey-card-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.journey-card-top {
-  display: block;
-  background-color: #F7F7F7;
-  height: 45px;
-}
-
-.journey-card-bottom {
-  display: flex;
-  background-color: $white;
-  height: 105px;
-
-  i {
-    margin: auto;
+  .journey-card-top {
+    height: 45px;
+    background-color: #F7F7F7;
+    display: block;
   }
+
+  .journey-card-bottom {
+    display: flex;
+    background-color: $white;
+    height: 105px;
+
+    i {
+      margin: auto;
+    }
+  }
+
+  .journey-card-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
 }
