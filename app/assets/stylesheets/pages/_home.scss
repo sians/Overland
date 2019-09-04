@@ -1,1 +1,53 @@
 // Specific CSS for your home-page
+#form-cta {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-content: center;
+  }
+
+.form-container {
+  padding-top: 200px;
+  padding-left: 200px;
+}
+
+.overland-font {
+  color: #E0A9AA;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 64px;
+  line-height: 75px;
+}
+
+.thicker-land {
+   color: #E0A9AA;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 75px;
+}
+
+.slogan {
+font-family: Roboto;
+font-style: italic;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+color: #000000;
+}
+
+.form-inputs {
+  width: 400px;
+  display: flex;
+  height: 40px;
+  padding-right: 5px;
+}
+
+.input-field {
+  border-radius: 5px;
+  height: 40px;
+  border:none;
+  padding-right: 10px;
+}
