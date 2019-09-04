@@ -48,19 +48,3 @@ input {
   input:hover {
     background: rgba(#223254,.03);
   }
-
-  // &:not(:placeholder-shown) {
-  //   + span;
-  //     color: #5A667F;
-  //     transform: translateY(-26px) scale(.75);
-  // }
-
-  input:focus {
-    // background: none;
-    // outline-style: none;
-    + span
-      color #0077FF;
-      transform: translateY(-26px) scale(.75);
-      + .border
-        transform: scaleX(1);
-  }
