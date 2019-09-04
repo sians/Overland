@@ -1,8 +1,8 @@
-class UsersController < ApplicationController
+class JourneysController < ApplicationController
   before_action :fetch_journey, only: %i[show edit update destroy]
 
   def index
-    @journeys = current_user.journey.all
+    @journeys = current_user.journeys.all
   end
 
   def show
