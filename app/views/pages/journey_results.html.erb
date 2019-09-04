@@ -1,19 +1,62 @@
+<% route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage) %>
+
+<div class="main-container">
+  <div class="row">
+
+    <div class="col-12 col-lg-3">
+       <div class="connection-card">
+
+          <div class="connection-card-top">
+            <p class="date">monday 13th of december</p>
+<!--             <p class="price"> 68€ </p> -->
+          </div>
+
+          <div class="connection-card-bottom">
+            <div class="connection-detail">
+              <div class="duration">
+                <%=  %>
+              </div>
+
+              <div class="connection-city">
+                <p><%= params[:start_city] %> to <%= params[:end_city] %></p>
+                <p class="station">city station</p>
+              </div>
+
+            </div>
+
+            <div class="button-book">
+            <a class="btn btn-book" href="#">BOOK TRIP</a>
+            </div>
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-12 col-lg-9">
+      <img style="max-width: 100%; position:sticky;height: 100vh;top:0;" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80">
+    </div>
+  </div>
+</div>
+
+<!--
+
+
 <div class="container">
   <div class="results">
 
-  <%#= @directions %>
-
-  <% route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage) %>
-  <%= route_connections[0].keys %>
     <div class="journey-card">
-      <p><%= route_connections[0][:total_duration] %></p>
-      <p><%= route_connections[0][:total_distance] %></p>
-      <% route_connections[0][:connections].each do |connection| %>
+      <p><%#= route_connections[0][:total_duration] %></p>
+      <p><%#= route_connections[0][:total_distance] %></p>
+      <%# route_connections[0][:connections].each do |connection| %>
         <div class="connection">
-          <%= connection[:transport_type] %>
+          <%#= connection[:transport_type] %>
         </div>
-      <% end %>
+      <%# end %>
     </div>
 
   </div>
 </div>
+ -->
