@@ -1,42 +1,66 @@
-<div class="profiles">
-  <div class="profile-card">
-    <% if current_user.avatar.present? %>
-    <div class="avatar-user">
-    <%= image_tag current_user.avatar, class:"avatar-large" %>
+<div class="container">
+  <div class="user-profile-details">
+    <div class="user-avatar">
+      <%= image_tag 'avatars/buck', class: 'avatar-xlarge' %>
+      <%= link_to 'edit', edit_user_registration_path %>
     </div>
-    <% else %>
-    <div class="avatar-user">
-      <%= image_tag ("toilet-paper-icon.png") %>
+    <div class="user-info">
+      <h3 class="user-username"><%= current_user.username %></h3>
+      <p class="user-review-num">Reviews</p>
+      <p class="user-trip-num"><span class="thicker"><%= current_user.journeys.size %></span> Saved Trips</p>
     </div>
+  </div>
+  <div class="tab-section">
 
-    <% end %>
+<!-- Classic tabs -->
+<div class="classic-tabs">
 
-    <div class="card-user-bio">
-      <h2>Hi, I'm <%= current_user.full_name %></h2>
-      <p><%= current_user.bio %></p>
-      <p class="shitting-since"> Shitting since <%= current_user.created_at.to_date %></p>
+  <ul class="nav tabs-cyan" id="myClassicTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link  waves-light active show" id="profile-tab-classic" data-toggle="tab" href="#profile-classic"
+        role="tab" aria-controls="profile-classic" aria-selected="true">My Routes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link waves-light" id="follow-tab-classic" data-toggle="tab" href="#follow-classic" role="tab"
+        aria-controls="follow-classic" aria-selected="false">My Reviews</a>
+    </li>
+
+  </ul>
+  <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+    <div class="tab-pane fade active show" id="profile-classic" role="tabpanel" aria-labelledby="profile-tab-classic">
+      <div class="my-routes">
+        <% current_user.journeys.each do |journey| %>
+          <div class="my-route-card">
+            <div class="my-route-card-header">
+              <h3><%= journey[:start_city] %> to <%= journey[:end_city] %></h3>
+              <%= link_to 'view trip', journey, class: 'btn btn-primary' %>
+            </div>
+              <div class="journey-icons">
+                <% unless journey[:connections].nil? %>
+                  <% journey[:connections].each do |connection| %>
+                    <% raise %>
+                    <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
+
+                  <% end %>
+                <% end %>
+              </div>
+
+          </div>
+        <% end %>
+      </div>
+
+
+
+    </div>
+    <div class="tab-pane fade" id="follow-classic" role="tabpanel" aria-labelledby="follow-tab-classic">
+      <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+        aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
     </div>
   </div>
 
-  <div class="profile-tab-group">
-    <ul class="nav-tabs" id="profile-tab-list">
-      <li class="nav-item profile-oneoutof-three" id="tab-1">My Toilets</li>
-      <li class="nav-item profile-oneoutof-three" id="tab-2">My Bookings</li>
-      <li class="nav-item profile-oneoutof-three" id="tab-3">Notifications</li>
-    </ul>
-
-    <div class="small-cards-bottom">
-      <div class="tab-content">
-        <div class="tab-pane active" id="tabs-1">
-          <%= render 'toilets' %>
-        </div>
-        <div class="tab-pane" id="tabs-2">
-          <%= render 'bookings' %>
-        </div>
-        <div class="tab-pane" id="tabs-3">
-          <%= render 'notifications' %>
-        </div>
-      </div>
-    </div>
+</div>
+<!-- Classic tabs -->
+    
   </div>
 </div>

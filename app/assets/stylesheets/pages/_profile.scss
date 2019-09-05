@@ -14,3 +14,57 @@ ul.nav-tabs {
       background-color: $red;
     }
 }
+
+.user-profile-details {
+  display: flex;
+  margin: 70px 0px;
+}
+
+.user-username {
+  font-size: 50px;
+}
+
+.user-review-num {
+  margin-bottom: 0px;
+}
+
+a.nav-link {
+  color: black;
+}
+
+.user-avatar {
+  margin-right: 30px;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.user-avatar img {
+  margin-bottom: 15px;
+}
+
+.tab-section {
+  margin-top: 50px;
+  min-height: 700px;
+}
+
+li.nav-item {
+  background-color:  white;
+  padding: 5px;
+  height: 50px;
+  width: 200px;
+  margin-right: 5px;
+  border-radius: 3px 3px 0px 0px;
+}
+
+li.nav-item:hover {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.1)
+}
+
+.tab-content {
+  background-color:  white;
+  padding: 30px;
+  min-height: 80vh;
+  border: none;
+}
