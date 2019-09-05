@@ -3,35 +3,24 @@
 <div class="main-container">
   <div class="row">
 
-    <div class="col-12 col-lg-3">
-       <div class="connection-card">
+    <div class="col-12 col-lg-3 sidebar">
+      <% route_connections.each do |route|%>
+        <div class="container">
+          <div class="card journey-card">
+            <div class="journey-header">
+              <p>34h 17m</p>
+            </div>
+            <div class="journey-icons">
+              <% route[1][:connections].each do |connection| %>
+                <% raise %>
+                <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
 
-          <div class="connection-card-top">
-            <p class="date">monday 13th of december</p>
-<!--             <p class="price"> 68€ </p> -->
-          </div>
-
-          <div class="connection-card-bottom">
-            <div class="connection-detail">
-              <div class="duration">
-                <%=  %>
-              </div>
-
-              <div class="connection-city">
-                <p><%= params[:start_city] %> to <%= params[:end_city] %></p>
-                <p class="station">city station</p>
-              </div>
+              <% end %>
 
             </div>
-
-            <div class="button-book">
-            <a class="btn btn-book" href="#">BOOK TRIP</a>
-            </div>
-
           </div>
-
         </div>
-
+      <% end %>
     </div>
 
 

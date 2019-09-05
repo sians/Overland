@@ -1,0 +1,42 @@
+<div class="profiles">
+  <div class="profile-card">
+    <% if current_user.avatar.present? %>
+    <div class="avatar-user">
+    <%= image_tag current_user.avatar, class:"avatar-large" %>
+    </div>
+    <% else %>
+    <div class="avatar-user">
+      <%= image_tag ("toilet-paper-icon.png") %>
+    </div>
+
+    <% end %>
+
+    <div class="card-user-bio">
+      <h2>Hi, I'm <%= current_user.full_name %></h2>
+      <p><%= current_user.bio %></p>
+      <p class="shitting-since"> Shitting since <%= current_user.created_at.to_date %></p>
+    </div>
+  </div>
+
+  <div class="profile-tab-group">
+    <ul class="nav-tabs" id="profile-tab-list">
+      <li class="nav-item profile-oneoutof-three" id="tab-1">My Toilets</li>
+      <li class="nav-item profile-oneoutof-three" id="tab-2">My Bookings</li>
+      <li class="nav-item profile-oneoutof-three" id="tab-3">Notifications</li>
+    </ul>
+
+    <div class="small-cards-bottom">
+      <div class="tab-content">
+        <div class="tab-pane active" id="tabs-1">
+          <%= render 'toilets' %>
+        </div>
+        <div class="tab-pane" id="tabs-2">
+          <%= render 'bookings' %>
+        </div>
+        <div class="tab-pane" id="tabs-3">
+          <%= render 'notifications' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
