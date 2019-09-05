@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'test', to: 'pages#test', as:'test'
   get 'connections', to: 'pages#connections', as:'connections-test'
+  get 'profile', to: 'pages#profile', as: 'profile'
   post 'journey_results', to: 'pages#journey_results', as: 'journey_results'
 
   resources :journeys do

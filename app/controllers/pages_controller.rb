@@ -5,6 +5,10 @@ class PagesController < ApplicationController
 
   end
 
+  def profile
+
+  end
+
   def connections
   end
 

@@ -20,3 +20,20 @@
   height: 45px;
   width: 45px;
 }
+
+
+// MY ROUTE CARD ON PROFILE PAGE
+.my-route-card {
+  height: 200px;
+  margin-bottom: 30px;
+
+  // -webkit-box-shadow: 0px 0px 11px -2px rgba(171,171,171,1);
+  // -moz-box-shadow: 0px 0px 11px -2px rgba(171,171,171,1);
+  // box-shadow: 0px 0px 11px -2px rgba(171,171,171,1);
+}
+
+.my-route-card-header {
+  font-weight: thin;
+  display: flex;
+  justify-content: space-between;
+}
