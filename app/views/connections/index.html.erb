@@ -1,3 +1,5 @@
+<% route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage) %>
+
 <div class="main-container">
 
   <div class="row">
@@ -6,7 +8,10 @@
       <!-- Added a div with 200px for the search form as not done yet -->
       <div style="margin-top: 200px">
       </div>
+<% route_connections.each do |route|%>
 
+<%= connection[:transport_type] %> <%= Time.at(connection[:end_time] - connection[:start_time]).utc.strftime("%H:%M:%S") %></p>
+                <p> <%= connection[:origin_city] %> at <%= connection[:start_time] %> -> <%= connection[:destination_city] %> at <%= connection[:end_time] %>
       <div class="connection-card">
         <div class="connection-card-top">
           <h6><strong>monday 13th of december</strong></h6>

@@ -3,20 +3,29 @@
 <div class="main-container">
   <div class="row">
 
-    <div class="col-12 col-lg-3 sidebar">
+    <div class="col-12 col-md-4 col-lg-4">
+      <div style="margin-top: 200px">
+      </div>
       <% route_connections.each do |route|%>
         <div class="container">
-          <div class="card journey-card">
-            <div class="journey-header">
-              <p>34h 17m</p>
+          <div class="journey-card">
+            <div class="journey-card-top">
+              <div class="journey-card-content">
+                <h6><strong><%= params[:start_city].capitalize %> to <%= params[:end_city].capitalize %></strong></h6>
+                <p><strong><%= route[1][:total_duration] %>
+              </strong></p>
+              </div>
             </div>
-            <div class="journey-icons">
+            <div class="journey-card-bottom">
               <% route[1][:connections].each do |connection| %>
-                <% raise %>
-                <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
-
+              <%= connection[:transport_type] %>
+              <% raise %>
+                <% if ["Train", "Subway", "Long distance train"].include? connection[:transport_type] %>
+                  <%= image_tag 'icons/train-icontrain.png' %>
+                <% elsif ["Bus"].include? connection[:transport_type] %>
+                  <%= image_tag 'icons/bus-iconbus.png' %>
+                <% end %>
               <% end %>
-
             </div>
           </div>
         </div>
@@ -24,8 +33,8 @@
     </div>
 
 
-    <div class="col-12 col-lg-9">
-      <img style="max-width: 100%; position:sticky;height: 100vh;top:0;" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80">
+    <div class="col-12 col-md-8 col-lg-8">
+      <%= render 'shared/map' %>
     </div>
   </div>
 </div>
