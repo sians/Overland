@@ -22,5 +22,33 @@ class PagesController < ApplicationController
       current_user.storage = @directions.fetch_google_directions(params[:start_city], params[:end_city])
       current_user.save
     end
+
+    current_user.storage = @directions.fetch_google_directions(params[:start_city], params[:end_city])
+    geocode_cities(params[:start_city], params[:end_city])
+    current_user.save
+    @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
+    geocode_stopovers
+  end
+
+  private
+
+  def geocode_cities(start_city, end_city)
+    @geo_array = [Geocoder.search(start_city).first, Geocoder.search(end_city).first]
+    @markers = @geo_array.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude
+      }
+    end
+  end
+
+  def geocode_stopovers
+  @route_connections.each do |route|
+    route[1][:connections].each do |connection|
+      connection_lat = connection[:end_latitude]
+      connection_lng = connection[:end_longitude]
+      @markers << { lat: connection_lat, lng: connection_lng }
+    end
+  end
   end
 end

@@ -1,18 +1,16 @@
-<% route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage) %>
-
 <div class="main-container">
   <div class="row">
 
     <div class="col-12 col-md-4 col-lg-4">
       <div style="margin-top: 200px">
       </div>
-      <% route_connections.each do |route|%>
-        <div class="container">
+
+      <% @route_connections.each do |route|%>
           <%= link_to connections_path do %>
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
-                  <h6><strong><%= Geocoder.search([route[1][:connections].first[:start_latitude], route[1][:connections].first[:start_longitude]]).first.city %> to <%= Geocoder.search([route[1][:connections].last[:end_latitude], route[1][:connections].last[:end_longitude]]).first.city %></strong></h6>
+                  <h6><strong><%= @geo_array[0].city.capitalize %> to <%= @geo_array[1].city.capitalize %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
                 </div>
@@ -35,7 +33,6 @@
           <% end %>
       <% end %>
     </div>
-
 
     <div class="col-12 col-md-8 col-lg-8">
       <%= render 'shared/map' %>
