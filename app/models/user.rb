@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :journeys
+  has_many :journeys, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
 end
