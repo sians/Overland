@@ -4,12 +4,13 @@
     <div class="col-12 col-md-4 col-lg-4">
       <div style="margin-top: 200px">
       </div>
-      <% @route_connections.each do |route|%>
-        <%= link_to connections_path do %>
+
+      <% route_connections.each do |route|%>
+        <div class="container">
+          <%= link_to connections_path do %>
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
-                  <!-- params[:start_city].split(',').first. -->
                   <h6><strong><%= @geo_array[0].city.capitalize %> to <%= @geo_array[1].city.capitalize %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
@@ -19,9 +20,9 @@
               <div class="journey-card-bottom">
                 <% route[1][:connections].each do |connection| %>
                   <% connection[:transport_type] %>
-                  <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
+                  <% if ["Train", "Long distance train", "High speed train"].include? connection[:transport_type] %>
                     <%= image_tag 'icons/train-icontrain.png' %>
-                  <% elsif ["Subway"].include? connection[:transport_type] %>
+                  <% elsif ["Subway", "Commuter train", "Tram"].include? connection[:transport_type] %>
                     <%= image_tag 'icons/subway-iconsubway.png' %>
                   <% elsif ["Bus"].include? connection[:transport_type] %>
                     <%= image_tag 'icons/bus-iconbus.png' %>
@@ -33,7 +34,6 @@
           <% end %>
       <% end %>
     </div>
-
 
     <div class="col-12 col-md-8 col-lg-8">
       <%= render 'shared/map' %>

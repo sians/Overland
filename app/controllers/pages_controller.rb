@@ -2,14 +2,13 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-
   end
 
   def profile
-
   end
 
   def connections
+    @directions = GoogleDirectionsService.new
   end
 
   def journey_results
@@ -51,6 +50,5 @@ class PagesController < ApplicationController
       @markers << { lat: connection_lat, lng: connection_lng }
     end
   end
-end
-
+  end
 end
