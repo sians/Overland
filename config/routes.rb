@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :journeys do
     resources :connections
   end
+  resources :connections, only: %i[index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
