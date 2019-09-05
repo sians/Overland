@@ -19,6 +19,7 @@
             <div class="journey-card-bottom">
               <% route[1][:connections].each do |connection| %>
                 <% connection[:transport_type] %>
+                <% raise %>
                 <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
                   <%= image_tag 'icons/train-icontrain.png' %>
                 <% elsif ["Subway"].include? connection[:transport_type] %>
