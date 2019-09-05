@@ -6,20 +6,3 @@
   <%= render 'search_form' %>
 </div>
 
-<script>
-(function() {
-  var placesAutocomplete = places({
-    appId: 'plCZF795OBRH',
-    apiKey: 'a74e19a14b11374550470794d257b49f',
-    container: document.querySelector('#city'),
-    templates: {
-      value: function(suggestion) {
-        return suggestion.name;
-      }
-    }
-  }).configure({
-    type: 'city',
-    aroundLatLngViaIP: false,
-  });
-})();
-</script>
