@@ -1,0 +1,66 @@
+<% route_connections = @directions.get_route_connections("o", "d", current_user.storage) %>
+
+<div class="main-container">
+  <div class="row">
+
+    <div class="col-12 col-md-4 col-lg-4">
+      <div style="margin-top: 200px">
+      </div>
+      <%= link_to 'save trip', journeys_path, method: :post, class: 'btn btn-book' %>
+
+      <% unless route_connections.nil? %>
+        <% route_connections.each do |route|%>
+          <div class="container">
+            <div class="journey-card">
+              <div class="journey-card-top">
+                <div class="journey-card-content">
+                  <h6></h6>
+                  <p><strong><%= route[1][:total_duration] %>
+                </strong></p>
+                </div>
+              </div>
+              <div class="journey-card-bottom">
+                <% route[1][:connections].each do |connection| %>
+                  <% connection[:transport_type] %>
+                  <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
+                    <%= image_tag 'icons/train-icontrain.png' %>
+                  <% elsif ["Subway"].include? connection[:transport_type] %>
+                    <%= image_tag 'icons/subway-iconsubway.png' %>
+                  <% elsif ["Bus"].include? connection[:transport_type] %>
+                    <%= image_tag 'icons/bus-iconbus.png' %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+
+
+    <div class="col-12 col-md-8 col-lg-8">
+      <%= render 'shared/map' %>
+    </div>
+  </div>
+</div>
+
+<!--
+
+
+<div class="container">
+  <div class="results">
+
+    <div class="journey-card">
+      <p><%#= route_connections[0][:total_duration] %></p>
+      <p><%#= route_connections[0][:total_distance] %></p>
+      <%# route_connections[0][:connections].each do |connection| %>
+        <div class="connection">
+          <%#= connection[:transport_type] %>
+        </div>
+      <%# end %>
+    </div>
+
+  </div>
+</div>
+ -->

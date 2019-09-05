@@ -46,7 +46,6 @@ class GoogleDirectionsService
     return parsed_routes
   end
 
-
   def get_routes(origin, destination, json)
     routes = {}
     if json.nil? || json.empty?
@@ -66,7 +65,12 @@ class GoogleDirectionsService
     response = RestClient.get URI.escape(full_query)
     JSON.parse(response)
   end
-end
 
-# directions = GoogleDirectionsService.new
-# x = directions.get_route_connections("Paris", "Hamburg")
+  def return_journey_origin(json)
+    json["routes"][0]["legs"][0]["start_address"]
+  end
+
+  def return_journey_destination(json)
+    json["routes"][0]["legs"][0]["end_address"]
+  end
+end
