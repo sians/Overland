@@ -1,7 +1,4 @@
 import "bootstrap";
+import { initAutocomplete } from "../plugins/init_autocomplete.js";
 
-
-// const pageHome = document.querySelector(".pages-home")
-// if(pageHome) {
-
-// }
+initAutocomplete();
