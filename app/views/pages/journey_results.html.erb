@@ -1,17 +1,16 @@
-<% route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage) %>
-
 <div class="main-container">
   <div class="row">
 
     <div class="col-12 col-md-4 col-lg-4">
       <div style="margin-top: 200px">
       </div>
-      <% route_connections.each do |route|%>
+      <% @route_connections.each do |route|%>
         <%= link_to connections_path do %>
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
-                  <h6><strong><%= params[:start_city].capitalize %> to <%= params[:end_city].capitalize %></strong></h6>
+                  <!-- params[:start_city].split(',').first. -->
+                  <h6><strong><%= @geo_array[0].city.capitalize %> to <%= @geo_array[1].city.capitalize %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
                 </div>
