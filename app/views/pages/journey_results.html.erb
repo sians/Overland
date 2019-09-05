@@ -18,6 +18,7 @@
                 </strong></p>
                 </div>
               </div>
+
               <div class="journey-card-bottom">
                 <% route[1][:connections].each do |connection| %>
                   <% connection[:transport_type] %>
@@ -28,6 +29,7 @@
                   <% elsif ["Bus"].include? connection[:transport_type] %>
                     <%= image_tag 'icons/bus-iconbus.png' %>
                   <% end %>
+
                 <% end %>
               </div>
             </div>
