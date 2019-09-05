@@ -7,7 +7,7 @@
 //   }
 
 .form-div {
-  width: 69%;
+  width: 72%;
   height: 10%;
 }
 
@@ -63,6 +63,7 @@ color: #000000;
   margin-right: 1.5%;
   width: 95%;
   padding: 8px;
+  text-overflow: ellipsis;
 }
 
 
@@ -80,6 +81,10 @@ color: #000000;
     top: 30%;
     right: 0;
   }
+
+.ap-icon-clear {
+  display: none;
+}
 
 .ap-input-icon {
   margin-right: 3%;
