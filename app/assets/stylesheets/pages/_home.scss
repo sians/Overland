@@ -41,7 +41,6 @@ color: #000000;
 .form-inputs {
   width: 100%;
   display: flex;
-  height: 40px;
 }
 
 .input-field {
@@ -60,4 +59,28 @@ color: #000000;
 
 .form-action {
   margin-top: 1.5%;
+}
+
+@media all and (max-width: 767px) {
+  .form-inputs {
+    display: block;
+  }
+  .input-field {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #form-cta, .btn-go {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .form-div {
+    width: 100%;
+  }
+
+  .form-container {
+    padding: 15%;
+    text-align: center;
+  }
 }
