@@ -39,7 +39,7 @@ color: #000000;
 }
 
 .form-inputs {
-  width: 100%;
+  width: 70%;
   display: flex;
 }
 
@@ -48,7 +48,7 @@ color: #000000;
   height: 100%;
   border: none;
   margin-right: 1.5%;
-  width: 22%;
+  width: 95%;
   padding: 10px;
 }
 
@@ -61,6 +61,13 @@ color: #000000;
   margin-top: 1.5%;
 }
 
+.ap-dropdown-menu {
+  width: 75%;
+}
+
+.ap-input-icon {
+  margin-right: 3%;
+}
 @media all and (max-width: 767px) {
   .form-inputs {
     display: block;

@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="user-profile-details">
+    <div class="user-avatar">
+      <%= image_tag 'avatars/buck', class: 'avatar-xlarge' %>
+      <%= link_to 'edit', edit_user_registration_path %>
+    </div>
+    <div class="user-info">
+      <h3 class="user-username"><%= current_user.username %></h3>
+      <p class="user-review-num">Reviews</p>
+      <p class="user-trip-num"><span class="thicker"><%= current_user.journeys.size %></span> Saved Trips</p>
+    </div>
+  </div>
+  <div class="tab-section">
+
+<!-- Classic tabs -->
+<div class="classic-tabs">
+
+  <ul class="nav tabs-cyan" id="myClassicTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link  waves-light active show" id="profile-tab-classic" data-toggle="tab" href="#profile-classic"
+        role="tab" aria-controls="profile-classic" aria-selected="true">My Routes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link waves-light" id="follow-tab-classic" data-toggle="tab" href="#follow-classic" role="tab"
+        aria-controls="follow-classic" aria-selected="false">My Reviews</a>
+    </li>
+
+  </ul>
+  <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+    <div class="tab-pane fade active show" id="profile-classic" role="tabpanel" aria-labelledby="profile-tab-classic">
+      <div class="my-routes">
+        <% current_user.journeys.each do |journey| %>
+          <div class="my-route-card">
+            <div class="my-route-card-header">
+              <h3><%= journey[:start_city] %> to <%= journey[:end_city] %></h3>
+              <%= link_to 'view trip', journey, class: 'btn btn-primary' %>
+            </div>
+              <div class="journey-icons">
+                <% unless journey[:connections].nil? %>
+                  <% journey[:connections].each do |connection| %>
+                    <% raise %>
+                    <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
+
+                  <% end %>
+                <% end %>
+              </div>
+
+          </div>
+        <% end %>
+      </div>
+
+
+
+    </div>
+    <div class="tab-pane fade" id="follow-classic" role="tabpanel" aria-labelledby="follow-tab-classic">
+      <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+        aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+    </div>
+  </div>
+
+</div>
+<!-- Classic tabs -->
+    
+  </div>
+</div>
