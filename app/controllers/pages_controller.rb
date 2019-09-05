@@ -24,9 +24,13 @@ class PagesController < ApplicationController
     end
 
     current_user.storage = @directions.fetch_google_directions(params[:start_city], params[:end_city])
+
+
     geocode_cities(params[:start_city], params[:end_city])
     current_user.save
     @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
+
+
     geocode_stopovers
   end
 
