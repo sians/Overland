@@ -1,8 +1,10 @@
 <div class="form-div">
 <%= form_tag journey_results_path, method: :post do %>
+<%= text_field_tag :starts_at, nil, class: "string datepicker flatpickr-input input-field", id: "search_starts_at",placeholder: 'start date', readonly: "readonly" %>
   <div class="form-inputs">
     <%= text_field_tag :start_city, nil, placeholder: 'origin', class: 'input-field' %>
     <%= text_field_tag :end_city, nil, placeholder: 'destination', class: 'input-field' %>
+
   </div>
 
   <div id="form-cta" class="form-action">
@@ -11,5 +13,8 @@
 
 <% end %>
 
+
  <!-- style: "width: 177px; height: 40px -->
 </div>
+
+
