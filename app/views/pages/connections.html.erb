@@ -10,7 +10,7 @@
       </div>
       <% route_connections.each do |route|%>
         <% route[1][:connections].each do |connection| %>
-        <%# raise %>
+        <%= connection[:transport_type] %>
           <div class="connection-card">
             <div class="connection-card-top">
               <h6><strong> <%= Time.at(connection[:start_time]).strftime("%A, %B %-d") %></strong></h6>
@@ -18,9 +18,9 @@
             </div>
           <div class="connection-card-bottom">
             <div>
-              <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
+              <% if ["Train", "Long distance train", "High speed train"].include? connection[:transport_type] %>
                 <%= image_tag 'icons/train-icontrain.png' %>
-              <% elsif ["Subway"].include? connection[:transport_type] %>
+              <% elsif ["Subway", "Commuter train", "Tram"].include? connection[:transport_type] %>
                 <%= image_tag 'icons/subway-iconsubway.png' %>
               <% elsif ["Bus"].include? connection[:transport_type] %>
                 <%= image_tag 'icons/bus-iconbus.png' %>
