@@ -51,4 +51,9 @@ class PagesController < ApplicationController
     end
   end
   end
+
+  def journey_connections
+    @directions = GoogleDirectionsService.new
+
+  end
 end
