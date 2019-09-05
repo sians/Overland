@@ -63,7 +63,7 @@ class GoogleDirectionsService
   def fetch_google_directions(origin, destination)
     url_string = "origin=#{origin}&destination=#{destination}&mode=transit&key=#{ENV["GOOGLE_DIRECTIONS_API"]}"
     full_query = "#{@base_url}#{url_string}"
-    response = RestClient.get full_query
+    response = RestClient.get URI.escape(full_query)
     JSON.parse(response)
   end
 end
