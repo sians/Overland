@@ -10,14 +10,12 @@
       </div>
 
       <div class="connection-card">
-        <% raise %>
         <% route_connections.each do |route|%>
           <%= connection[:transport_type] %> <%= Time.at(connection[:end_time] - connection[:start_time]).utc.strftime("%H:%M:%S") %>
-          <p> <%= connection[:origin_city] %> at <%= connection[:start_time] %> -> <%= connection[:destination_city] %> at <%= connection[:end_time] %>
+          <p> <%= connection[:origin_city] %> at <%= connection[:start_time] %> -> <%= connection[:destination_city] %> at <%= connection[:end_time] %> </p>
         <div class="connection-card-top">
-          <%= raise %>
-          <h6><strong>monday 13th of december</strong></h6>
-          <p><strong>68€</strong></p>
+          <h6><strong>monday 24th of december</strong></h6>
+          <p><strong>79€</strong></p>
         </div>
         <div class="connection-card-bottom">
           <div class="connection-detail">

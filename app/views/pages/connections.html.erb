@@ -1,3 +1,5 @@
+<% route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage) %>
+
 <div class="main-container">
 
   <div class="row">
@@ -6,24 +8,35 @@
       <!-- Added a div with 200px for the search form as not done yet -->
       <div style="margin-top: 200px">
       </div>
-
-      <div class="connection-card">
-        <div class="connection-card-top">
-          <h6><strong>monday 13th of december</strong></h6>
-          <p><strong>68€</strong></p>
-        </div>
-        <div class="connection-card-bottom">
-          <div class="connection-detail">
-            <div class="connection-city">
-              <p>city - <strong>00.00am</strong></p>
-              <p class="station"><strong>city station</strong></p>
+      <% route_connections.each do |route|%>
+        <% route[1][:connections].each do |connection| %>
+        <%# raise %>
+          <div class="connection-card">
+            <div class="connection-card-top">
+              <h6><strong> <%= Time.at(connection[:start_time]).strftime("%A, %B %-d") %></strong></h6>
+              <p><strong>Price: 74€</strong></p>
             </div>
-            <div class="duration">
-             <strong>1h23min</strong>
+          <div class="connection-card-bottom">
+            <div>
+              <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
+                <%= image_tag 'icons/train-icontrain.png' %>
+              <% elsif ["Subway"].include? connection[:transport_type] %>
+                <%= image_tag 'icons/subway-iconsubway.png' %>
+              <% elsif ["Bus"].include? connection[:transport_type] %>
+                <%= image_tag 'icons/bus-iconbus.png' %>
+              <% end %>
             </div>
+            <div class="connection-detail">
+              <div class="connection-city">
+                <p><%= Geocoder.search([connection[:start_latitude], connection[:start_longitude]]).first.city%> - <strong><%=Time.at(connection[:start_time]).strftime("%Hh:%Mm") %></strong></p>
+                <p class="station"><strong> <%= connection[:origin_city] %></strong></p>
+              </div>
+              <div class="duration">
+                <strong> <%= Time.at(connection[:end_time]-connection[:start_time]-3600).strftime("%Hh:%Mm") %></strong>
+              </div>
             <div class="connection-city">
-              <p>city - <strong>00.00am</strong></p>
-              <p class="station"><strong>city station</strong></p>
+              <p><%= Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.city%> - <strong><%=Time.at(connection[:end_time]).strftime("%Hh:%Mm") %></strong></p>
+              <p class="station"><strong><%= connection[:destination_city] %></strong></p>
             </div>
           </div>
           <div class="button-book">
@@ -31,7 +44,8 @@
           </div>
         </div>
       </div>
-
+      <% end %>
+      <% end %>
     </div>
 
     <div class="col-12 col-md-8 col-lg-8">
