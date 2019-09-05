@@ -6,6 +6,19 @@
 //   align-content: center;
 //   }
 
+.form-div {
+  width: 72%;
+  height: 10%;
+}
+
+.flatpickr-input[readonly] {
+  cursor: pointer;
+  width: 46.8%;
+  margin-bottom: 13px;
+  padding-left: 19.5%;
+  color: grey;
+}
+
 .form-container {
   padding-top: 15%;
   padding-left: 15%;
@@ -21,7 +34,7 @@
 }
 
 .thicker-land {
-   color: #E0A9AA;
+  color: #E0A9AA;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -39,22 +52,18 @@ color: #000000;
 }
 
 .form-inputs {
-  width: 70%;
+  width: 48%;
   display: flex;
 }
 
 .input-field {
   border-radius: 5px;
-  height: 100%;
+  height: 65%;
   border: none;
   margin-right: 1.5%;
   width: 95%;
-  padding: 10px;
-}
-
-.form-div {
-  width: 60%;
-  height: 10%;
+  padding: 8px;
+  text-overflow: ellipsis;
 }
 
 .form-action {
@@ -65,9 +74,22 @@ color: #000000;
   width: 95%;
 }
 
+.ap-input-icon svg {
+    fill: #E0A9AA;
+    position: absolute;
+    top: 30%;
+    right: 0;
+  }
+
+.ap-icon-clear {
+  display: none;
+}
+
 .ap-input-icon {
   margin-right: 3%;
 }
+
+
 @media all and (max-width: 767px) {
   .form-inputs {
     display: block;

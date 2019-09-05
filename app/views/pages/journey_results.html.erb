@@ -9,7 +9,6 @@
       <% route_connections.each do |route|%>
         <div class="container">
           <%= link_to connections_path do %>
-          <% #raise %>
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
@@ -33,7 +32,6 @@
                 <% end %>
               </div>
             </div>
-          </div>
           <% end %>
       <% end %>
     </div>
@@ -44,23 +42,3 @@
     </div>
   </div>
 </div>
-
-<!--
-
-
-<div class="container">
-  <div class="results">
-
-    <div class="journey-card">
-      <p><%#= route_connections[0][:total_duration] %></p>
-      <p><%#= route_connections[0][:total_distance] %></p>
-      <%# route_connections[0][:connections].each do |connection| %>
-        <div class="connection">
-          <%#= connection[:transport_type] %>
-        </div>
-      <%# end %>
-    </div>
-
-  </div>
-</div>
- -->
