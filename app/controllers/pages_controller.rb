@@ -31,6 +31,7 @@ class PagesController < ApplicationController
       @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
       geocode_stopovers
     end
+
   end
 
   private
@@ -46,12 +47,12 @@ class PagesController < ApplicationController
   end
 
   def geocode_stopovers
-  @route_connections.each do |route|
-    route[1][:connections].each do |connection|
-      connection_lat = connection[:end_latitude]
-      connection_lng = connection[:end_longitude]
+    @route_connections.each do |route|
+      route[1][:connections].each do |connection|
+        connection_lat = connection[:end_latitude]
+        connection_lng = connection[:end_longitude]
       @markers << { lat: connection_lat, lng: connection_lng }
     end
-  end
+    end
   end
 end
