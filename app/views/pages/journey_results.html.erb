@@ -2,7 +2,22 @@
   <div class="row">
 
     <div class="col-12 col-md-4 col-lg-4">
-      <div style="margin-top: 200px">
+      <div class="form-div" id="search-con-page">
+        <%= form_tag journey_results_path, method: :post do %>
+        <%= text_field_tag :starts_at, nil, class: "string flatpickrcon datepicker flatpickr-input input-field", id: "search_starts_at",placeholder: 'start date', readonly: "readonly" %>
+          <div class="form-inputs" id="input-connection">
+            <%= text_field_tag :start_city, nil, placeholder: 'origin', class: 'input-field' %>
+            <%= text_field_tag :end_city, nil, placeholder: 'destination', class: 'input-field' %>
+          </div>
+
+          <div id="form-cta" class="form-action">
+          <%= submit_tag "Let's go", class: 'btn btn-go', id: "results-button"%>
+          </div>
+
+          <% end %>
+      </div>
+
+      <div style="margin-top: 0px;">
       </div>
 
       <% @route_connections.each do |route|%>
