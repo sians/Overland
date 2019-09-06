@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'connections', to: 'pages#connections', as:'connections-test'
   get 'profile', to: 'pages#profile', as: 'profile'
   post 'journey_results', to: 'pages#journey_results', as: 'journey_results'
+  # get 'journey_results', to: 'pages#journey_results'
   get 'journey_connections', to: 'pages#journey_connections', as: 'journey_connections'
 
   get 'bookings', to: 'journeys#bookings', as: 'bookings'

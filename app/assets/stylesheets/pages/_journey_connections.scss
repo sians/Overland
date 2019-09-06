@@ -1,0 +1,23 @@
+.map-section {
+  position: fixed;
+  right: 0;
+}
+
+.btn-container {
+  padding: 30px;
+  text-align: center;
+  .btn {
+    margin: auto;
+    width: 200px;
+  }
+  .btn-back {
+    margin-bottom: 10px;
+    font-style: italic;
+    padding: 8px 24px;
+  }
+  .btn-back:hover {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 5px;
+  }
+}
