@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    raise
+
   end
 
   def destroy
@@ -27,6 +27,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(username, avatar)
+    params.require(:user).permit(:username, :avatar)
   end
 end

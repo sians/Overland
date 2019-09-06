@@ -11,11 +11,11 @@ User.destroy_all
 
 
 puts "Creating users.........."
-User.create(email: "1234@gmail.com", password: "Password", username: "1234", avatar: ActionController::Base.helpers.asset_path("avatars/1234.jpg"))
-User.create(email: "buck@gmail.com", password: "Password", username: "Buck", avatar: ActionController::Base.helpers.asset_path("avatars/buck.jpg"))
-User.create(email: "diego@gmail.com", password: "Password", username: "Diego", avatar: ActionController::Base.helpers.asset_path("avatars/diego.jpg"))
-User.create(email: "manny@gmail.com", password: "Password", username: "Manny", avatar: ActionController::Base.helpers.asset_path("avatars/manny.jpg"))
-User.create(email: "sid@gmail.com", password: "Password", username: "Sid", avatar: ActionController::Base.helpers.asset_path("avatars/sid.jpg"))
+User.create(email: "1234@gmail.com", password: "Password", username: "1234", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
+User.create(email: "buck@gmail.com", password: "Password", username: "Buck", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
+User.create(email: "diego@gmail.com", password: "Password", username: "Diego", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
+User.create(email: "manny@gmail.com", password: "Password", username: "Manny", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
+User.create(email: "sid@gmail.com", password: "Password", username: "Sid", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
 puts "Users were created......"
 
 puts "Creating journeys.........."
