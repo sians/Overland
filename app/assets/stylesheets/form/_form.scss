@@ -3,13 +3,12 @@ form {
   margin: auto;
   display: block;
 
-  .input-field {
-    margin-bottom: 25px;
+  .login-form-inputs {
+    display: block;
   }
 
-  .form-h2 {
-    margin-bottom: 50px;
-    text-align: center;
+  .login-input-field {
+    margin-bottom: 20px;
   }
 
   #form-cta {
@@ -21,4 +20,15 @@ form {
 
 }
 
+  .form-h2 {
+    margin-bottom: 50px;
+    text-align: center;
+    margin-top: 75px;
+  }
+
+  #form-container {
+    width: 400px;
+    text-align: center;
+    margin: auto;
+  }
 
