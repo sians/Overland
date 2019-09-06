@@ -17,16 +17,20 @@ class PagesController < ApplicationController
     start_at_date = params[:starts_at].empty? ? Date.today : Date.parse(params[:starts_at])
 
     if params[:start_city].empty? || params[:end_city].empty?
-      redirect_to root_path, alert: "Provide Cities"
+      redirect_to root_path, alert: "Want to stay at home? Provide a city!"
     else
       current_user.storage = @directions.fetch_google_directions(params[:start_city], params[:end_city])
       current_user.save
     end
 
     current_user.storage = @directions.fetch_google_directions(params[:start_city], params[:end_city])
+
+
     geocode_cities(params[:start_city], params[:end_city])
     current_user.save
     @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
+
+
     geocode_stopovers
   end
 
