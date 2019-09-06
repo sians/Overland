@@ -25,7 +25,7 @@
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
-                  <h6><strong><%= @geo_array[0].city.capitalize %> to <%= @geo_array[1].city.capitalize %></strong></h6>
+                  <h6><strong><%= @geo_array.first[:origin_city].capitalize %> to <%= @geo_array.last[:destination_city].capitalize %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
                 </div>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="col-12 col-md-8 col-lg-8">
-      <%= render 'shared/map' %>
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
     </div>
   </div>
 </div>

@@ -27,7 +27,7 @@ class PagesController < ApplicationController
       @directions = GoogleDirectionsService.new
       current_user.storage = @directions.fetch_google_directions(params[:start_city], params[:end_city])
       current_user.save
-      geocode_cities(params[:start_city], params[:end_city])
+      #geocode_cities(params[:start_city], params[:end_city])
       @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
       geocode_stopovers
     end
@@ -47,12 +47,15 @@ class PagesController < ApplicationController
   end
 
   def geocode_stopovers
+    @markers = []
+    @geo_array = []
     @route_connections.each do |route|
       route[1][:connections].each do |connection|
         connection_lat = connection[:end_latitude]
         connection_lng = connection[:end_longitude]
+      @geo_array << connection
       @markers << { lat: connection_lat, lng: connection_lng }
-    end
+      end
     end
   end
 end

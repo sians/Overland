@@ -1,4 +1,4 @@
-<div id="map" data-markers="<%= @markers.to_json %>"></div>
+<!-- <div id="map" data-markers="<%= @markers.to_json %>"></div>
 <script>
   const mapElement = document.getElementById('map');
 
@@ -21,7 +21,7 @@
           draggable: true,
           animation: google.maps.Animation.DROP,
         });
-        var flightPlanCoordinates = markers
+        var flightPlanCoordinates = markers.order
         var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
@@ -80,9 +80,7 @@
 
 </script>
 
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN1pKGoKnBycR75zZln0ozAg59anLdePU&callback=initMap">
-</script>
+
 
 
 <!-- @route_connections
@@ -111,4 +109,5 @@ route[1][:connections]
 
         flightPath.setMap(map);
       }
+ -->
  -->
