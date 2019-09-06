@@ -31,7 +31,6 @@ class PagesController < ApplicationController
       @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
       geocode_stopovers
     end
-
   end
 
   private
