@@ -1,15 +1,13 @@
-<div class="bg">
-  <div class="container">
-    <div class="user-profile-details">
-      <div class="user-avatar">
-        <%= image_tag 'avatars/buck', class: 'avatar-xlarge' %>
-        <%= link_to 'edit', edit_user_registration_path %>
-      </div>
-      <div class="user-info">
-        <h3 class="user-username"><%= current_user.username %></h3>
-        <p class="user-review-num">Reviews</p>
-        <p class="user-trip-num"><span class="thicker"><%= current_user.journeys.size %></span> Saved Trips</p>
-      </div>
+<div class="container">
+  <div class="user-profile-details">
+    <div class="user-avatar">
+      <%= image_tag current_user.avatar, class: 'avatar-xlarge' %>
+      <%= link_to 'edit', edit_user_registration_path %>
+    </div>
+    <div class="user-info">
+      <h3 class="user-username"><%= current_user.username %></h3>
+      <p class="user-review-num">Reviews</p>
+      <p class="user-trip-num"><span class="thicker"><%= current_user.journeys.size %></span> Saved Trips</p>
     </div>
     <div class="tab-section">
 
