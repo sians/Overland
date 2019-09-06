@@ -25,7 +25,7 @@
                 <div class="journey-card-content">
                   <%  %>
                   <%  %>
-                  <h6><strong><%= params[:start_city].capitalize %> to <%= params[:end_city].capitalize %></strong></h6>
+                  <h6><strong><%= params[:start_city].split(',').first.capitalize %> to <%= params[:end_city].split(',').first.capitalize %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
                 </div>
