@@ -85,7 +85,7 @@
 
 
     <div class="col-12 col-md-8 col-lg-8">
-      <%= render 'shared/map' %>
+      <div id="map" data-markers="<%= @markers.to_json %>" style="position: fixed"></div>
     </div>
   </div>
 </div>
