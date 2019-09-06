@@ -77,8 +77,9 @@
   background: #E0A9AA;
   }
 
-  &:hover {
-    background: #E0A9AA;
-    color: white;
-  }
+// fixed the weird giant hover on the connection detail page
+  // &:hover {
+  //   background: #E0A9AA;
+  //   color: white;
+  // }
 }
