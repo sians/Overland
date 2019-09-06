@@ -10,7 +10,7 @@
 
   .connection-card-top {
     height: 45px;
-    background: #F7F7F7;
+    background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: space-between;
 
@@ -23,7 +23,7 @@
       margin: 0px;
       padding: 10px;
       padding-left: 20px;
-      color: $black;
+      color: white;
     }
 
     p {
@@ -37,17 +37,15 @@
   }
 
   .connection-card-bottom {
-    height: 300px;
+    padding: 25px;
     background: $white;
-
-    .connection-detail {
-      height: 245px;
-      padding-top: 50px;
+    p {
+      padding: 0px;
+      margin: 0px;
     }
-
     .duration {
       text-align: right;
-      padding-right: 50px;
+      padding-right: 20px;
       font-size: large;
       color: $dark-grey;
     }
@@ -59,12 +57,15 @@
 }
 
 .connection-city {
-  height: 70px;
   display: block;
   font-size: 13px;
   padding-left: 100px;
 }
 
+.icon-row {
+  align-items: center;
+  padding: 15px 0px 15px 15px;
+}
 
 .button-book {
   text-align: right;

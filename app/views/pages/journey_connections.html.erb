@@ -3,9 +3,12 @@
   <div class="row">
 
     <div class="col-12 col-md-4 col-lg-4">
-      <div style="margin-top: 200px">
+
+      <div class="btn-container">
+        <%#= link_to 'Back to Journeys', journey_results_path, class: 'btn btn-back' %>
+
+        <%= link_to 'Save Trip', journeys_path, method: :post, class: 'btn btn-book' %>
       </div>
-      <%= link_to 'save trip', journeys_path, method: :post, class: 'btn btn-book' %>
 
       <% unless route_connections.nil? %>
 
@@ -14,7 +17,7 @@
           <div class="connection-card">
             <div class="connection-card-top">
               <h6><strong> <%= Time.at(connection[:start_time]).strftime("%A, %B %-d") %></strong></h6>
-              <p><strong>Price: 74€</strong></p>
+<!--               <p><strong>Price: 74€</strong></p> -->
             </div>
           <div class="connection-card-bottom">
             <div class="connection-detail">
@@ -22,8 +25,8 @@
                 <p><%= Geocoder.search([connection[:start_latitude], connection[:start_longitude]]).first.city%> - <strong><%=Time.at(connection[:start_time]).strftime("%Hh:%Mm") %></strong></p>
                 <p class="station"><strong> <%= connection[:origin_city] %></strong></p>
               </div>
-              <div class="d-flex" style="justify-content: space-between">
-                <div style="padding-left: 30px">
+              <div class="d-flex icon-row" style="justify-content: space-between">
+                <div>
                   <% if ["Train", "Long distance train", "High speed train"].include? connection[:transport_type] %>
                     <%= image_tag 'icons/train-icontrain.png' %>
                   <% elsif ["Subway", "Commuter train", "Tram"].include? connection[:transport_type] %>
@@ -41,9 +44,6 @@
               <p class="station"><strong><%= connection[:destination_city] %></strong></p>
             </div>
           </div>
-          <div class="button-book">
-            <a class="btn btn-book" href="#">BOOK TRIP</a>
-          </div>
         </div>
       </div>
       <% end %>
@@ -51,40 +51,12 @@
 
 
 
-
-
-
-        <% route_connections.each do |route|%>
-          <div class="container">
-            <div class="journey-card">
-              <div class="journey-card-top">
-                <div class="journey-card-content">
-                  <h6></h6>
-                  <p><strong><%= route[1][:total_duration] %>
-                </strong></p>
-                </div>
-              </div>
-              <div class="journey-card-bottom">
-                <% route[1][:connections].each do |connection| %>
-                  <% connection[:transport_type] %>
-                  <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/train-icontrain.png' %>
-                  <% elsif ["Subway"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/subway-iconsubway.png' %>
-                  <% elsif ["Bus"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/bus-iconbus.png' %>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <% end %>
       <% end %>
 
     </div>
 
 
-    <div class="col-12 col-md-8 col-lg-8">
+    <div class="col-12 col-md-8 col-lg-8 map-section">
       <div id="map" data-markers="<%= @markers.to_json %>" style="position: fixed"></div>
     </div>
   </div>
