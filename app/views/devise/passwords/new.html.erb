@@ -1,17 +1,19 @@
-<h2>Forgot your password?</h2>
+<div class="main-container" id="form-container">
+
+  <h2 class="form-h2">Forgot your password?</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="login-form-inputs">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+  <div id="form-cta">
+    <%= f.button :submit, "Send me reset password instructions", class: "btn btn-go btn-submit", style: "width: 100%"  %>
   </div>
 <% end %>
 
