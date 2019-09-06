@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="route-detail">
+    <div class="route-detail-header">
+      <div class="journey-details">
+        <h1><%= @journey.name %></h1>
+        <p>3h</p>
+      </div>
+      <%= link_to 'View Bookings', bookings_path, class: 'btn btn-book' %>
+    </div>
+    <div class="route-connection-cards">
+      <% @journey.connections.reverse.each do |connection| %>
+        <div class="route-connection-card">
+
+          <div class="line"></div>
+          <div class="route-connection-content">
+            <div>
+
+              <h4><%= connection[:origin_city] %></h4>
+
+              <p></p>
+              <h4><%= connection[:destination_city] %></h4>
+              <p></p>
+            </div>
+
+            <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
+              <%= image_tag 'icons/train-icontrain.png' %>
+            <% elsif ["Subway"].include? connection[:transport_type] %>
+              <%= image_tag 'icons/subway-iconsubway.png' %>
+            <% elsif ["Bus"].include? connection[:transport_type] %>
+              <%= image_tag 'icons/bus-iconbus.png' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
