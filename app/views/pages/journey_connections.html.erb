@@ -48,37 +48,6 @@
       </div>
       <% end %>
       <% end %>
-
-
-
-
-
-
-        <% route_connections.each do |route|%>
-          <div class="container">
-            <div class="journey-card">
-              <div class="journey-card-top">
-                <div class="journey-card-content">
-                  <h6></h6>
-                  <p><strong><%= route[1][:total_duration] %>
-                </strong></p>
-                </div>
-              </div>
-              <div class="journey-card-bottom">
-                <% route[1][:connections].each do |connection| %>
-                  <% connection[:transport_type] %>
-                  <% if ["Train", "Long distance train"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/train-icontrain.png' %>
-                  <% elsif ["Subway"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/subway-iconsubway.png' %>
-                  <% elsif ["Bus"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/bus-iconbus.png' %>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <% end %>
       <% end %>
 
     </div>
