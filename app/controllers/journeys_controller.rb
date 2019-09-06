@@ -29,6 +29,9 @@ class JourneysController < ApplicationController
     # @user.delete
   end
 
+  def bookings
+  end
+
   private
 
   def fetch_journey

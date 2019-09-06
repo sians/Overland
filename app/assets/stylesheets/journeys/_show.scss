@@ -1,0 +1,30 @@
+.route-detail {
+  margin-top: 100px;
+  background-color: white;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.route-detail-header {
+  height: 100px;
+  background-color: #454545;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    color: white;
+    font-weight: 200;
+    font-size: 24px;
+    margin: 0px;
+  }
+  p {
+    color: white;
+    margin: 0px;
+    font-weight: fine;
+  }
+  .btn-book {
+    height: 40px;
+  }
+}
+

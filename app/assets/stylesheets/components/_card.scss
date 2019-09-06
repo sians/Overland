@@ -1,3 +1,8 @@
+// body {
+//   background-image: url("https://images.unsplash.com/photo-1482059470115-0aadd6bf6834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+//   background-size: cover;
+// }
+
 .card {
   width: 400px;
   background-color: white;
@@ -37,3 +42,31 @@
   display: flex;
   justify-content: space-between;
 }
+
+// CONNECTION CARD ON JOURNEY SHOW PAGE
+
+.route-connection-card {
+  display:flex;
+  padding: 15px;
+  margin: 20px;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  .line {
+    width: 50px;
+  }
+  .route-connection-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    h4 {
+      font-size: 20px;
+    }
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}
+
+
+
