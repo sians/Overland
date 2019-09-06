@@ -25,7 +25,11 @@
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
-                  <h6><strong><%= @geo_array.first[:origin_city].capitalize %> to <%= @geo_array.last[:destination_city].capitalize %></strong></h6>
+                  <% start_city = params[:start_city].split(',').first %>
+                  <% start_country = params[:start_city].split(',').last %>
+                  <% end_city = params[:end_city].split(',').first %>
+                  <% end_country = params[:end_city].split(',').last %>
+                  <h6><strong><%= start_city %> to <%= end_city %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
                 </div>
