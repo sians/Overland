@@ -29,7 +29,7 @@
   <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
     <div class="tab-pane fade active show" id="profile-classic" role="tabpanel" aria-labelledby="profile-tab-classic">
       <div class="my-routes">
-        <% current_user.journeys.each do |journey| %>
+        <% current_user.journeys.reverse.each do |journey| %>
           <div class="my-route-card">
             <div class="my-route-card-header">
               <h3><%= journey[:start_city] %> to <%= journey[:end_city] %></h3>
@@ -61,6 +61,6 @@
 
 </div>
 <!-- Classic tabs -->
-    
+
   </div>
 </div>

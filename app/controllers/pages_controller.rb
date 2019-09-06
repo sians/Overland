@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     @directions = GoogleDirectionsService.new
   end
 
+  def journey_connections
+    @directions = GoogleDirectionsService.new
+  end
+
   def journey_results
 
 
@@ -50,9 +54,5 @@ class PagesController < ApplicationController
       @markers << { lat: connection_lat, lng: connection_lng }
     end
     end
-  end
-
-  def journey_connections
-    @directions = GoogleDirectionsService.new
   end
 end
