@@ -17,8 +17,6 @@
           <% end %>
       </div>
 
-      <div style="margin-top: 0px;">
-      </div>
 
       <% @route_connections.each do |route|%>
           <%= link_to connections_path do %>
@@ -47,7 +45,13 @@
             </div>
           <% end %>
       <% end %>
+            <div class="infospace">
+              <iframe style="padding-left: 25px;"width="450" height="750" frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" src="https://calculator.carbonfootprint.com/calculator.aspx?c=flight"></iframe>
+
+            </div>
     </div>
+
+
 
     <div class="col-12 col-md-8 col-lg-8">
       <%= render 'shared/map' %>
