@@ -1,3 +1,10 @@
+.home-bg {
+  // background-image: url(https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+  // background-image: url(https://images.unsplash.com/photo-1442570468985-f63ed5de9086?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1693&q=80);
+  background-image: url(https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);
+  height: 100%;
+  background-size: cover;
+}
 
 .form-div {
   width: 72%;
@@ -19,6 +26,7 @@
 
 .overland-font {
   color: #E0A9AA;
+  // color: rgba(0,0,0,0.8);
   font-family: Roboto;
   font-style: normal;
   font-weight: 200;
@@ -27,7 +35,7 @@
 }
 
 .thicker-land {
-  color: #E0A9AA;
+  // color: #E0A9AA;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -41,7 +49,7 @@ font-style: italic;
 font-weight: 500;
 font-size: 24px;
 line-height: 28px;
-color: #000000;
+color: white;
 text-align: left;
 }
 
