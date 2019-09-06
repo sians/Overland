@@ -1,7 +1,7 @@
 <div class="container">
   <div class="user-profile-details">
     <div class="user-avatar">
-      <%= image_tag 'avatars/buck', class: 'avatar-xlarge' %>
+      <%= image_tag current_user.avatar, class: 'avatar-xlarge' %>
       <%= link_to 'edit', edit_user_registration_path %>
     </div>
     <div class="user-info">
@@ -61,6 +61,6 @@
 
 </div>
 <!-- Classic tabs -->
-    
+
   </div>
 </div>

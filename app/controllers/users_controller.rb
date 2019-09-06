@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :fetch_user, only: %i[show new edit destroy]
+  before_action :fetch_user, only: %i[show new edit update destroy]
 
   def show
   end
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    raise
   end
 
   def destroy
