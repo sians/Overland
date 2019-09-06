@@ -30,15 +30,13 @@
             <% current_user.journeys.reverse.each do |journey| %>
               <div class="my-route-card">
                 <div class="my-route-card-header">
-                  <h3><%= journey[:start_city] %> to <%= journey[:end_city] %></h3>
-                  <%= link_to 'view trip', journey, class: 'btn btn-primary' %>
+                  <h3><%= journey[:start_city] %> – <%= journey[:end_city] %></h3>
+                  <%= link_to 'View trip', journey, class: 'btn btn-go', style: "width: 15%" %>
                 </div>
                 <div class="journey-icons">
                   <% unless journey[:connections].nil? %>
                     <% journey[:connections].each do |connection| %>
-                      <% raise %>
                       <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
-
                     <% end %>
                   <% end %>
                 </div>

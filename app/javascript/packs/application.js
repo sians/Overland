@@ -7,6 +7,7 @@ initAutocomplete();
 import GMaps from 'gmaps/gmaps.js';
 
 const mapElement = document.getElementById('map');
+
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
   const markers = JSON.parse(mapElement.dataset.markers);
@@ -19,14 +20,36 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   } else {
     map.fitLatLngBounds(markers);
   }
-  var flightPlanCoordinates = markers
-        var flightPath = map.drawPolyline({
-          path: flightPlanCoordinates,
-          geodesic: true,
-          strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
-        });
 
-     flightPath.setMap(map);
+  var flightPlanCoordinates = markers
+  var flightPath = map.drawPolyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  flightPath.setMap(map);
+
+  // var marker = new google.maps.Marker({
+  //     position: element,
+  //     map: map,
+  //     draggable: true,
+  //     animation: google.maps.Animation.DROP,
+  //   });
+
+  // marker.addListener('click', toggleBounce);
+  //   function toggleBounce() {
+  //     if (marker.getAnimation() !== null) {
+  //       marker.setAnimation(null);
+  //     } else {
+  //       marker.setAnimation(google.maps.Animation.BOUNCE);
+  //     }
+  //   }
+
+  // marker.addListener('click', function() {
+  //   infowindow.open(map, marker);
+  // });
+
 }
