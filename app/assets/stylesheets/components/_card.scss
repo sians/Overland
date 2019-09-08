@@ -30,8 +30,11 @@
 // MY ROUTE CARD ON PROFILE PAGE
 .my-route-card {
   border-bottom: inset;
-  height: 250px;
+  height: 300px;
   padding-bottom: 30px;
+  .bold {
+    font-weight: bold;
+  }
   .my-route-card-header {
     font-weight: thin;
     display: flex;
@@ -41,7 +44,16 @@
     background-color: $dark-grey;
     color: white;
     h4 {
+      display: inline-block;
+      width: 600px;
       margin: 0px;
+    }
+    p {
+      margin-bottom: 0px;
+      font-size: 20px;
+    }
+    a {
+      width: 200px;
     }
   }
   .my-route-card-content {

@@ -35,10 +35,14 @@ class CreateConnectionService
     directions = GoogleDirectionsService.new
     origin = directions.return_journey_origin(json)
     destination = directions.return_journey_destination(json)
+    total_duration = directions.get_route_connections("o","d", user.storage)[0][:total_duration]
+    total_distance = directions.get_route_connections("o","d", user.storage)[0][:total_distance]
     # new_journey = add_connections_to_journey(json)
     journey.name = "#{origin} to #{destination}"
     journey.start_city = origin
     journey.end_city = destination
+    journey.total_duration = total_duration
+    journey.total_distance = total_distance
     journey.archived = false
     journey.user = user
     journey.save

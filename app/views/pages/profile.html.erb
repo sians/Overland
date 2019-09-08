@@ -32,6 +32,8 @@
               <div class="my-route-card">
                 <div class="my-route-card-header">
                   <h4><%= journey[:start_city].split(",").first %> – <%= journey[:end_city].split(",").first %></h4>
+
+                  <p><%= journey[:total_duration] %></p>
                   <%= link_to 'View trip', journey, class: 'btn btn-go' %>
 
                 </div>
@@ -39,9 +41,11 @@
 
                   <div class="journey-details">
                     <div class="journey-info">
-                      <p><span class="underlined">Departing:</span> <%= journey[:start_city] %> at <%#= journey.connections.first[:start_time] %></p>
+                      <p><span class="underlined">
+                      Departing:</span> <%= journey[:start_city] %> at <%#= journey.connections.first[:start_time] %></p>
+                      <p>Covering <span class="bold"><%= journey[:total_distance] %></span></p>
                       <p><%= journey.connections.size %> connections</p>
-                      <p><span class="underlined">Arriving:</span> <%= journey[:end_city] %></p>
+                      <p><span class="underlined">Arriving:</span> <%= journey[:end_city] %> at <%= journey.connections.last[:end_time] %></p>
                     </div>
                     <div class="journey-icons">
                       <% unless journey[:connections].nil? %>
@@ -54,13 +58,16 @@
                   </div>
 
                   <div class="my-route-card-links">
-                    <%= link_to journeys_path(journey), method: :patch, :title => "edit journey" do %>
+                    <%= link_to journeys_path(journey), method: :patch, title: "edit journey" do %>
                       <%= image_tag 'icons/edit.png', class: 'my-route-icon' %>
                     <% end %>
                     <% unless journey[:archived] %>
-                      <%= link_to journeys_path(journey), method: :patch, :title => "archive journey" do %>
+                      <%= link_to journeys_path(journey), method: :patch, title: "archive journey" do %>
                         <%= image_tag 'icons/archive.png', class: 'my-route-icon' %>
                       <% end %>
+                    <% end %>
+                    <%= link_to journeys_path(journey), method: :delete, title: "delete journey" do %>
+                      <%= image_tag 'icons/garbage.png', class: 'my-route-icon' %>
                     <% end %>
                   </div>
 
