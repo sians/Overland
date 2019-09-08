@@ -24,4 +24,8 @@ class JourneyPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def archive?
+    record.user == user
+  end
 end
