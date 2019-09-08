@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'journey_connections', to: 'pages#journey_connections', as: 'journey_connections'
 
   get 'bookings', to: 'journeys#bookings', as: 'bookings'
+  patch 'journeys/:id/archive', to: 'journeys#archive', as: 'archive'
 
   resources :journeys do
     resources :connections

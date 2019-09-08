@@ -1,5 +1,5 @@
 class JourneysController < ApplicationController
-  before_action :fetch_journey, only: %i[show edit update destroy]
+  before_action :fetch_journey, only: %i[show edit update destroy archive]
 
   def index
     @journeys = policy_scope(Journey).order(created_at: :desc)
@@ -30,6 +30,12 @@ class JourneysController < ApplicationController
   end
 
   def bookings
+  end
+
+  def archive
+    @journey.archived = true
+    @journey.save
+    redirect_to profile_path
   end
 
   private
