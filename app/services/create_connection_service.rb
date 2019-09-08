@@ -58,12 +58,12 @@ class CreateConnectionService
       new_connection.provider = connection[:provider]
       new_connection.provider_website = connection[:provider_website]
       new_connection.booking_status = false
-      # new_connection.start_time = connection[:start_time]
-      # new_connection.end_time = connection[:end_time]
-      # new_connection.start_latitude = connection[:start_latitude]
-      # new_connection.start_longitude = connection[:start_longitude]
-      # new_connection.end_longitude = connection[:end_longitude]
-      # new_connection.end_latitude = connection[:end_latitude]
+      new_connection.start_time = connection[:start_time]
+      new_connection.end_time = connection[:end_time]
+      new_connection.start_latitude = connection[:start_latitude]
+      new_connection.start_longitude = connection[:start_longitude]
+      new_connection.end_longitude = connection[:end_longitude]
+      new_connection.end_latitude = connection[:end_latitude]
       # new_connection.save
       new_connection
     end
