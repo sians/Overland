@@ -1,6 +1,24 @@
+.main-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 600px;
+  position: relative;
+  left:0;
+  overflow: scroll;
+  height: 95vh;
+  -webkit-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
+  -moz-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
+  box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
+}
+
 .map-section {
-  position: fixed;
+  position: relative;
   right: 0;
+  top: 0;
+  height: 95vh;
+  width: 100%;
 }
 
 .btn-container {
