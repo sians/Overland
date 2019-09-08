@@ -2,17 +2,17 @@
   color: white;
   padding: 8px 24px;
   border-radius: 5px;
-  background: #E0A9AA;
+  background: $overland;
 }
 
 .btn-book:hover {
-  background: #E0A9AA;
+  background: $overland;
   color: white;
 }
 
 .btn-go {
   padding: 8px;
-  background-color: #E0A9AA;
+  background-color: $overland;
   margin-top: 1px;
   color: white;
   text-align: center;
@@ -23,6 +23,6 @@
 
 .btn-go:hover {
   color: white;
-  background-color: #E0A9AA;
+  background-color: $overland;
 }
 

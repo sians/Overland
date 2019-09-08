@@ -13,7 +13,7 @@
 }
 
 .overland-logo {
-  color: #E0A9AA;
+  color: $overland;
   padding-top: 15px;
   font-size: 32px;
   padding-left: 30px;
@@ -24,7 +24,7 @@ padding-right: 30px;
 }
 
 .overland-font-navbar {
-  color: #E0A9AA;
+  color: $overland;
   font-family: Roboto;
   font-style: normal;
   font-weight: 200;
@@ -33,7 +33,7 @@ padding-right: 30px;
 }
 
 .thicker-land-navbar {
-   color: #E0A9AA;
+   color: $overland;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;

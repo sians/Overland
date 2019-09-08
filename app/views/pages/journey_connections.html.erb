@@ -1,12 +1,8 @@
 <% route_connections = @directions.get_route_connections("o", "d", current_user.storage) %>
 <div class="main-container">
-  <div class="row">
-
-    <div class="col-12 col-md-4 col-lg-4">
-
+    <div class="sidebar">
       <div class="btn-container">
         <%#= link_to 'Back to Journeys', journey_results_path, class: 'btn btn-back' %>
-
         <%= link_to 'Save Trip', journeys_path, method: :post, class: 'btn btn-book' %>
       </div>
 
@@ -54,9 +50,8 @@
     </div>
 
 
-    <div class="col-12 col-md-8 col-lg-8 map-section">
-      <div id="map" data-markers="<%= @markers.to_json %>" style="position: fixed"></div>
+    <div class="map-section">
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
     </div>
-  </div>
 </div>
 

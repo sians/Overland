@@ -1,14 +1,14 @@
 .home-bg {
   // background-image: url(https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
   // background-image: url(https://images.unsplash.com/photo-1442570468985-f63ed5de9086?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1693&q=80);
-  background-image: url(https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);
+  background-image: url("https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80");
   height: 100%;
   background-size: cover;
 }
 
 .form-div {
-  width: 72%;
-  height: 10%;
+  // width: 72%;
+  // height: 10%;
 }
 
 .flatpickr-input[readonly] {
@@ -25,7 +25,7 @@
 }
 
 .overland-font {
-  color: #E0A9AA;
+  color: $overland;
   // color: rgba(0,0,0,0.8);
   font-family: Roboto;
   font-style: normal;
@@ -80,7 +80,7 @@ text-align: left;
 
 .ap-input-icon svg {
   margin-top: 7px;
-  fill: #E0A9AA;
+  fill: $overland;
   position: absolute;
   top: 30%;
   right: 0;

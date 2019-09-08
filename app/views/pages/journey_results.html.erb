@@ -1,7 +1,6 @@
 <div class="main-container">
-  <div class="row">
 
-    <div class="col-12 col-md-4 col-lg-4">
+    <div class="sidebar">
       <div class="form-div" id="search-con-page">
         <%= form_tag journey_results_path, method: :post do %>
         <%= text_field_tag :starts_at, nil, class: "string flatpickrcon datepicker flatpickr-input input-field", id: "search_starts_at",placeholder: 'start date', readonly: "readonly" %>
@@ -53,8 +52,8 @@
 
 
 
-    <div class="col-12 col-md-8 col-lg-8">
+    <div class="map-section">
       <div id="map" data-markers="<%= @markers.to_json %>" style="position: fixed"></div>
     </div>
-  </div>
+
 </div>

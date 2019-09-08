@@ -6,7 +6,6 @@
 .connection-card {
   border-color: #F7F7F7;
   border-radius: 5px;
-  width: 488px;
 
   .connection-card-top {
     height: 45px;
@@ -75,7 +74,7 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #E0A9AA;
+  background: $overland;
   }
 
 // fixed the weird giant hover on the connection detail page

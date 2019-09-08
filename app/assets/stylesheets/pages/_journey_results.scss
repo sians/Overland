@@ -1,20 +1,5 @@
-.sidebar {
-  min-width: 350px;
-}
-
-// p {
-//   text-align: center;
-// }
-
-#map {
-  position: fixed;
-}
-
-#search-con-page.form-div {
-  width: 104%;
-  height: 23%;
-  padding-left: 2%;
-  padding-top: 3%;
+#search-con-page {
+  padding: 30px 15px 40px;
 }
 
 #results-button.btn-go {
@@ -22,7 +7,7 @@
 }
 
 #input-connection.form-inputs {
-  width: 102.5%
+  width: 102.5%;
 }
 
 #search_starts_at.flatpickrcon {
@@ -31,11 +16,6 @@
 }
 
 .infospace {
-width: 488px;
-height: auto;
-margin-top: 50px;
-  }
-
-.journey-card {
-  margin-top: -65px;
+  height: auto;
+  margin-top: 50px;
 }
