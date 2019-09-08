@@ -28,17 +28,43 @@
         <div class="tab-pane fade active show" id="profile-classic" role="tabpanel" aria-labelledby="profile-tab-classic">
           <div class="my-routes">
             <% current_user.journeys.reverse.each do |journey| %>
+
               <div class="my-route-card">
                 <div class="my-route-card-header">
-                  <h3><%= journey[:start_city] %> – <%= journey[:end_city] %></h3>
-                  <%= link_to 'View trip', journey, class: 'btn btn-go', style: "width: 15%" %>
+                  <h4><%= journey[:start_city].split(",").first %> – <%= journey[:end_city].split(",").first %></h4>
+                  <%= link_to 'View trip', journey, class: 'btn btn-go' %>
+
                 </div>
-                <div class="journey-icons">
-                  <% unless journey[:connections].nil? %>
-                    <% journey[:connections].each do |connection| %>
-                      <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
+                <div class="my-route-card-content">
+
+                  <div class="journey-details">
+                    <div class="journey-info">
+
+                      <p><span class="underlined">Departing:</span> <%= journey[:start_city] %> at <%#= journey.connections.first[:start_time] %></p>
+                      <p><%= journey.connections.size %> connections</p>
+                      <p><span class="underlined">Arriving:</span> <%= journey[:end_city] %></p>
+                    </div>
+                    <div class="journey-icons">
+                      <% unless journey[:connections].nil? %>
+                        <% journey[:connections].each do |connection| %>
+                          <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
+                        <% end %>
+                      <% end %>
+                    </div>
+
+                  </div>
+
+                  <div class="my-route-card-links">
+                    <%= link_to journeys_path(journey), method: :patch, :title => "edit journey" do %>
+                      <%= image_tag 'icons/edit.png', class: 'my-route-icon' %>
                     <% end %>
-                  <% end %>
+                    <% unless journey[:archived] %>
+                      <%= link_to journeys_path(journey), method: :patch, :title => "archive journey" do %>
+                        <%= image_tag 'icons/archive.png', class: 'my-route-icon' %>
+                      <% end %>
+                    <% end %>
+                  </div>
+
                 </div>
               </div>
             <% end %>
