@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
   def journey_results
     # WHOEVER SEES THIS AND KNOWS HOW TO IMPROVE THIS STATEMENT, FEEL FREE!
-    if params[:starts_at].empty?
+    if params[:starts_at].nil?
       params[:starts_at] = Date.today
     else
       Date.parse(params[:starts_at])
