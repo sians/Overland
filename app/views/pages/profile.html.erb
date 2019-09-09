@@ -1,7 +1,7 @@
 <div class="container">
   <div class="user-profile-details">
     <div class="user-avatar">
-      <%= image_tag current_user.avatar, class: 'avatar-xlarge' %>
+      <%= image_tag current_user.avatar_url, class: 'avatar-xlarge' %>
       <%= link_to 'edit', edit_user_registration_path %>
     </div>
     <div class="user-info">
@@ -43,10 +43,10 @@
                   <div class="journey-details">
                     <div class="journey-info">
                       <p><span class="underlined">
-                      Departing:</span> <%= journey[:start_city] %> at <%#= journey.connections.first[:start_time] %></p>
+                      Departing:</span> <%= journey[:start_city] %> at <span class="datetime"><%= Time.at(journey.connections.first[:start_time].to_i).strftime("%T on %A, %B %e, %Y") %></span></p>
                       <p>Covering <span class="bold"><%= journey[:total_distance] %></span></p>
                       <p><%= journey.connections.size %> connections</p>
-                      <p><span class="underlined">Arriving:</span> <%= journey[:end_city] %> at <%= journey.connections.last[:end_time] %></p>
+                      <p><span class="underlined">Arriving:</span> <%= journey[:end_city] %> at <span class="datetime"><%= Time.at(journey.connections.last[:end_time].to_i).strftime("%T on %A, %B %e, %Y") %></span></p>
                     </div>
                     <div class="journey-icons">
                       <% unless journey[:connections].nil? %>

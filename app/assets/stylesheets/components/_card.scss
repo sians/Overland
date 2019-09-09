@@ -67,8 +67,15 @@
         border-bottom: dashed 2px $overland;
       }
       .datetime {
+        background-color: white;
+        color: $overland;
+        border-bottom: dashed 2px $overland;
+        padding-bottom: 2px;
+      }
+      .datetime:hover {
         background-color: $overland;
         color: white;
+        padding: 0px 2px;
       }
     }
     .my-route-card-links {

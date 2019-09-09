@@ -37,6 +37,7 @@ class GooglePlacesService
   end
 
 # type is the required google attr
+
 # we are using: lodging, restaurant, point_of_interest
   def fetch_places(type)
     url_string = "location=#{@lat},#{@lng}&radius=1500&type=#{type}&key="
@@ -45,7 +46,6 @@ class GooglePlacesService
     JSON.parse(response)
   end
 end
-
 
 # places = GooglePlacesService.new(-33.8670522, 151.1957362)
 # j = places.fetch_places("restaurant")
