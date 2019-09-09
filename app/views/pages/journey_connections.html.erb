@@ -33,12 +33,13 @@
                   <% end %>
                 </div>
                 <div class="duration">
-                  <strong> <%= Time.at(connection[:end_time]-connection[:start_time]-3600).strftime("%Hh:%Mm") %></strong>
+                  <strong> <%= Time.at(connection[:end_time]-connection[:start_time]).strftime("%Hh:%Mm") %></strong>
                 </div>
               </div>
             <div class="connection-city">
               <p><%= Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.city%> - <strong><%=Time.at(connection[:end_time]).strftime("%Hh:%Mm") %></strong></p>
               <p class="station"><strong><%= connection[:destination_city] %></strong></p>
+              <%= link_to 'Check Recommendations', bookings_path, class: 'btn btn-go' %>
             </div>
           </div>
         </div>
