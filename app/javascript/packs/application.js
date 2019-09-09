@@ -53,3 +53,21 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   // });
 
 }
+
+
+const pagesJourneyConnnections = document.querySelectorAll(".pages-journey_connections")
+
+if(pagesJourneyConnnections) {
+  // const checkRecommendations = document.querySelectorAll(".btn-recommendations")
+  // checkRecommendations.forEach((button) => {
+  //   button.addEventListener("click", (event) => {
+  //     console.log(event.currentTarget);
+  //   });
+  // });
+
+
+}
+
+
+
+

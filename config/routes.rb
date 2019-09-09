@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'pois/index'
+
   devise_for :users, controllers: {sessions: "sessions"}
   root to: 'pages#home'
+
   get 'test', to: 'pages#test', as:'test'
   get 'connections', to: 'pages#connections', as:'connections-test'
   get 'profile', to: 'pages#profile', as: 'profile'
@@ -9,6 +10,9 @@ Rails.application.routes.draw do
   post 'journey_results', to: 'pages#journey_results', as: 'journey_results'
   # get 'journey_results', to: 'pages#journey_results'
   get 'journey_connections', to: 'pages#journey_connections', as: 'journey_connections'
+
+  get 'pois/index'
+  post 'pois', to: 'pois#create', as: 'new_pois'
 
   get 'bookings', to: 'journeys#bookings', as: 'bookings'
   patch 'journeys/:id/archive', to: 'journeys#archive', as: 'archive'

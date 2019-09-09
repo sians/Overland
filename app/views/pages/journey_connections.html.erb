@@ -39,7 +39,19 @@
             <div class="connection-city">
               <p><%= Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.city%> - <strong><%=Time.at(connection[:end_time]).strftime("%Hh:%Mm") %></strong></p>
               <p class="station"><strong><%= connection[:destination_city] %></strong></p>
-              <%= link_to 'Check Recommendations', bookings_path, class: 'btn btn-go' %>
+
+
+              <%= form_tag new_pois_path, method: :post, remote: true do %>
+                <%= hidden_field_tag "lat", connection[:end_latitude] %>
+                <%= hidden_field_tag "lng", connection[:end_longitude] %>
+                <%= submit_tag "Check Recommendations", class: "btn btn-go btn-recommendations", data: { toggle: 'modal', target: '.bd-example-modal-lg'} %>
+              <% end %>
+
+
+
+
+
+              <%#= link_to 'Check Recommendations', bookings_path, class: 'btn btn-go' %>
             </div>
           </div>
         </div>
