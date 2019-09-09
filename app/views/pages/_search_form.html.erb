@@ -1,5 +1,5 @@
 <div class="form-div">
-<%= form_tag journey_results_path, method: :post do %>
+<%= form_tag journey_create_path, method: :post do %>
 <%= text_field_tag :starts_at, nil, class: "string datepicker flatpickr-input input-field", id: "search_starts_at",placeholder: 'start date', readonly: "readonly" %>
   <div class="form-inputs">
     <%= text_field_tag :start_city, nil, placeholder: 'origin', class: 'input-field' %>

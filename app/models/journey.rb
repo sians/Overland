@@ -5,4 +5,18 @@ class Journey < ApplicationRecord
   validates :name, presence: true
   validates :start_city, presence: true, allow_blank: false
   validates :end_city, presence: true, allow_blank: false
+
+  validates :token, presence: true
+  validates :token, uniqueness: true
+  before_validation :generate_token, on: :create
+
+  def generate_token
+    begin
+      self.token = SecureRandom.urlsafe_base64(64, false)
+    end while self.class.find_by(token: token)
+  end
+
+  def to_param
+    token
+  end
 end

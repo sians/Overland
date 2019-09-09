@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'test', to: 'pages#test', as:'test'
   get 'connections', to: 'pages#connections', as:'connections-test'
   get 'profile', to: 'pages#profile', as: 'profile'
-  get 'journey_results', to: 'pages#journey_results', as: 'journey_results_info'
-  post 'journey_results', to: 'pages#journey_results', as: 'journey_results'
+  get 'journey_results', to: 'pages#journey_results', as: 'journey_results'
+  post 'journey_create', to: 'pages#journey_create', as: 'journey_create'
   # get 'journey_results', to: 'pages#journey_results'
   get 'journey_connections', to: 'pages#journey_connections', as: 'journey_connections'
 
