@@ -24,6 +24,7 @@ class PagesController < ApplicationController
       params[:starts_at] = Date.today
     else
       Date.parse(params[:starts_at])
+    end
 
     if params[:start_city].empty? || params[:end_city].empty?
       #raise
