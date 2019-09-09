@@ -8,20 +8,24 @@ class GooglePlacesService
   end
 
 # creates poi instances in the database
+  def create_poi(poi)
+    Poi.new(poi)
+  end
+
 # returns an array of 5 poi hashes
-  def create_pois(json)
+  def create_pois_array(json)
     poi_results = json["results"][0...5].map do |result|
-      pois = {}
+      poi = {}
       result_json = fetch_place_id(result["place_id"])
-      pois[:poi_name] = result["name"]
-      pois[:google_place_id] = result["place_id"]
-      pois[:location] = result["geometry"]["location"]
-      pois[:address] = result["vicinity"]
-      pois[:price_level] = result["price_level"] if result["price_level"].present?
-      pois[:phone_number] = result_json["result"]["formatted_phone_number"]
+      poi[:poi_name] = result["name"]
+      poi[:google_place_id] = result["place_id"]
+      poi[:location] = result["geometry"]["location"]
+      poi[:address] = result["vicinity"]
+      poi[:price_level] = result["price_level"] if result["price_level"].present?
+      poi[:phone_number] = result_json["result"]["formatted_phone_number"]
       # pois[:opening_hours] = result_json["opening_hours"]["weekday_text"]
-      pois[:website] = result_json["result"]["website"]
-      pois
+      poi[:website] = result_json["result"]["website"]
+      poi
     end
   end
 
@@ -33,7 +37,8 @@ class GooglePlacesService
   end
 
 # type is the required google attr
-# we are using: loding, restaurant, point_of_interest
+
+# we are using: lodging, restaurant, point_of_interest
   def fetch_places(type)
     url_string = "location=#{@lat},#{@lng}&radius=1500&type=#{type}&key="
     full_query = "#{@base_places_url}#{url_string}#{@api_key}"
@@ -42,8 +47,7 @@ class GooglePlacesService
   end
 end
 
-
-places = GooglePlacesService.new(-33.8670522, 151.1957362)
-j = places.fetch_places("restaurant")
-puts places.create_pois(j)
-places.fetch_place_id("ChIJFfyzTTeuEmsRuMxvFyNRfbk")
+# places = GooglePlacesService.new(-33.8670522, 151.1957362)
+# j = places.fetch_places("restaurant")
+# puts places.create_pois(j)
+# places.fetch_place_id("ChIJFfyzTTeuEmsRuMxvFyNRfbk")
