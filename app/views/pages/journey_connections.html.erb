@@ -33,7 +33,7 @@
                   <% end %>
                 </div>
                 <div class="duration">
-                  <strong> <%= Time.at(connection[:end_time]-connection[:start_time]).strftime("%Hh:%Mm") %></strong>
+                  <strong> <%= (Time.at(connection[:end_time]) - (connection[:start_time])).utc.strftime("%Hh:%Mm") %></strong>
                 </div>
               </div>
             <div class="connection-city">
@@ -46,9 +46,7 @@
       </div>
       <% end %>
       <% end %>
-
       <% end %>
-
     </div>
 
 
