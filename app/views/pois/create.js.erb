@@ -1,0 +1,16 @@
+// alert('Hello');
+
+// checkRecommendations.forEach((button) => {
+//   button.addEventListener((event) => {
+//     console.log(event.currentTarget);
+//   });
+// });
+
+// const modalTitle
+
+function populateModal() {
+  const modalBody = document.getElementById('recommendations');
+  modalBody.innerHTML = '<%= j render "pois/list", simple: @simple, lodgings: @lodgings, food: @food, point_of_interests: @point_of_interests %>'
+}
+
+populateModal();
