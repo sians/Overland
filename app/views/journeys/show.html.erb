@@ -1,9 +1,14 @@
 <div class="container">
+  <div class="back">
+    <%= link_to profile_path do %>
+      <i class="fas fa-arrow-left"></i>
+    <% end %>
+  </div>
   <div class="route-detail">
     <div class="route-detail-header">
       <div class="journey-details">
         <h1><%= @journey.name %></h1>
-        <p>3h</p>
+        <p><%= @journey.total_duration %></p>
       </div>
       <%= link_to 'View Bookings', bookings_path, class: 'btn btn-book' %>
     </div>
