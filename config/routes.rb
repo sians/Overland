@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pois/index'
   devise_for :users
   root to: 'pages#home'
   get 'test', to: 'pages#test', as:'test'
