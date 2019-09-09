@@ -23,6 +23,7 @@ class PagesController < ApplicationController
       params[:starts_at] = Date.today
     else
       Date.parse(params[:starts_at])
+    end
 
     if params[:start_city].empty? || params[:end_city].empty?
       redirect_to root_path, alert: "Want to stay at home? Provide a city!"
