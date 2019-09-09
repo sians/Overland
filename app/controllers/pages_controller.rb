@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+
   end
 
   def profile
@@ -18,8 +19,6 @@ class PagesController < ApplicationController
   end
 
   def journey_results
-
-
     # start_at_date = params[:starts_at].empty? ? Date.today : Date.parse(params[:starts_at])
 
     if params[:start_city].empty? || params[:end_city].empty?
