@@ -1,12 +1,11 @@
 <div class="main-container">
-
     <div class="sidebar">
       <div class="form-div" id="search-con-page">
         <%= form_tag journey_results_path, method: :post do %>
-        <%= text_field_tag :starts_at, nil, class: "string flatpickrcon datepicker flatpickr-input input-field", id: "search_starts_at",placeholder: 'start date', readonly: "readonly" %>
+        <%= text_field_tag :starts_at, nil, class: "string flatpickrcon datepicker flatpickr-input input-field", id: "search_starts_at",placeholder: params[:starts_at], readonly: "readonly" %>
           <div class="form-inputs" id="input-connection">
-            <%= text_field_tag :start_city, nil, placeholder: 'origin', class: 'input-field' %>
-            <%= text_field_tag :end_city, nil, placeholder: 'destination', class: 'input-field' %>
+            <%= text_field_tag :start_city, nil, placeholder: params[:start_city], id:"resultsform", class: 'input-field' %>
+            <%= text_field_tag :end_city, nil, placeholder: params[:end_city], id:"resultsform", class: 'input-field' %>
           </div>
 
           <div id="form-cta" class="form-action">

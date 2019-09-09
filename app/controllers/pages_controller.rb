@@ -19,7 +19,11 @@ class PagesController < ApplicationController
   end
 
   def journey_results
-    # start_at_date = params[:starts_at].empty? ? Date.today : Date.parse(params[:starts_at])
+    # WHOEVER SEES THIS AND KNOWS HOW TO IMPROVE THIS STATEMENT, FEEL FREE!
+    if params[:starts_at].empty?
+      params[:starts_at] = Date.today
+    else
+      Date.parse(params[:starts_at])
 
     if params[:start_city].empty? || params[:end_city].empty?
       #raise
