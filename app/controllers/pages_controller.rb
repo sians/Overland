@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-
   end
 
   def profile
@@ -22,7 +21,6 @@ class PagesController < ApplicationController
     # start_at_date = params[:starts_at].empty? ? Date.today : Date.parse(params[:starts_at])
 
     if params[:start_city].empty? || params[:end_city].empty?
-      #raise
       redirect_to root_path, alert: "Want to stay at home? Provide a city!"
     else
       @directions = GoogleDirectionsService.new
@@ -32,8 +30,6 @@ class PagesController < ApplicationController
       @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
       geocode_stopovers
     end
-    # byebug
-
   end
 
   private
