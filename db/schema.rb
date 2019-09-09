@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_135755) do
+
+ActiveRecord::Schema.define(version: 2019_09_09_155919) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +39,15 @@ ActiveRecord::Schema.define(version: 2019_09_09_135755) do
     t.index ["journey_id"], name: "index_connections_on_journey_id"
   end
 
+  create_table "journey_tokens", force: :cascade do |t|
+    t.string "start_city"
+    t.string "end_city"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "starts_at"
+  end
+
   create_table "journeys", force: :cascade do |t|
     t.string "name"
     t.string "start_city"
@@ -48,6 +60,8 @@ ActiveRecord::Schema.define(version: 2019_09_09_135755) do
     t.datetime "updated_at", null: false
     t.string "total_duration"
     t.string "total_distance"
+    t.string "token"
+    t.index ["token"], name: "index_journeys_on_token", unique: true
     t.index ["user_id"], name: "index_journeys_on_user_id"
   end
 

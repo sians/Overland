@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-
   end
 
   def profile
@@ -18,27 +17,38 @@ class PagesController < ApplicationController
     geocode_stopovers
   end
 
+  def journey_create
+    journey = JourneyToken.create(
+      start_city: params[:start_city],
+      end_city: params[:end_city],
+      starts_at: params[:starts_at]
+    )
+    redirect_to journey_results_path(token: journey.token)
+  end
+
   def journey_results
+    @token = JourneyToken.find_by(token: params[:token])
     # WHOEVER SEES THIS AND KNOWS HOW TO IMPROVE THIS STATEMENT, FEEL FREE!
-    if params[:starts_at].nil?
+
+    unless @token.starts_at.present?
       params[:starts_at] = Date.today
+
+    #if params[:starts_at].nil?
+     # params[:starts_at] = Date.today
     else
       Date.parse(params[:starts_at])
     end
 
-    if params[:start_city].empty? || params[:end_city].empty?
-      #raise
+    if @token.start_city.empty? || @token.end_city.empty?
       redirect_to root_path, alert: "Want to stay at home? Provide a city!"
     else
       @directions = GoogleDirectionsService.new
-      current_user.storage = @directions.fetch_google_directions(params[:start_city], params[:end_city])
+      current_user.storage = @directions.fetch_google_directions(@token.start_city, @token.end_city)
       current_user.save
-      #geocode_cities(params[:start_city], params[:end_city])
-      @route_connections = @directions.get_route_connections(params[:start_city], params[:end_city], current_user.storage)
+      #geocode_cities(@token.start_city, @token.end_city)
+      @route_connections = @directions.get_route_connections(@token.start_city, @token.end_city, current_user.storage)
       geocode_stopovers
     end
-    # byebug
-
   end
 
   private
@@ -60,9 +70,10 @@ class PagesController < ApplicationController
       route[1][:connections].each do |connection|
         connection_lat = connection[:end_latitude]
         connection_lng = connection[:end_longitude]
-      @geo_array << connection
-      @markers << { lat: connection_lat, lng: connection_lng }
+        @geo_array << connection
+        @markers << { lat: connection_lat, lng: connection_lng }
       end
     end
   end
+
 end
