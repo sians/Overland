@@ -1,2 +1,12 @@
-<p><%= connection[:destination_city] %></p>
-<p><%= Time.at(connection[:start_time]).strftime("%Hh%Mm on %A, %B %e, %Y")  %></p>
+<% city = Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.city %>
+<%# country = Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.country %>
+
+<div style="display:flex; justify-content: space-between;">
+<h6><%= Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.city %></h6>
+<h6><%= Time.at(connection[:start_time]).strftime("%Hh%Mm")  %></h6>
+</div>
+<img width="200px" src="https://source.unsplash.com/1600x900/?<%=city%>,landmark">
+<!-- <p><%#= connection[:destination_city] %></p> -->
+
+<p style="padding-top: 5px;"><%= Time.at(connection[:start_time]).strftime("%a, %b %e, %Y")  %></p>
+<%# raise %>
