@@ -22,12 +22,17 @@ class ApplicationController < ActionController::Base
     # end
 
   def after_sign_in_path_for(resource_or_scope)
-    journey = JourneyToken.create(
+    journey = JourneyToken.new(
       start_city: session[:start_city],
       end_city: session[:end_city],
       starts_at: session[:starts_at]
     )
-    journey_results_path(token: journey.token)
+
+    if journey.save
+      journey_results_path(token: journey.token)
+    else
+      root_path
+    end
   end
 
   def configure_permitted_parameters
