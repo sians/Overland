@@ -10,29 +10,51 @@
     color: $soft-blue;
   }
 
-  h6 {
-    align-self: flex-end;
-    margin: 0px;
-    padding: 10px;
-    padding-left: 20px;
-    color: $soft-blue;
-  }
-
   .journey-card-top {
     height: 45px;
     background-color: #F7F7F7;
     display: block;
+
+      h6 {
+        align-self: flex-end;
+        margin: 0px;
+        padding: 10px;
+        padding-left: 20px;
+        color: $soft-blue;
+    }
+
   }
 
   .journey-card-bottom {
     display: flex;
     background-color: $white;
+    padding-top: 20px;
     height: 105px;
+    justify-content: space-around;
 
-    img {
-      margin: auto;
-      height: 50%;
+    #transport-icon {
+      display: block;
+      text-align: center;
+
+      img {
+        margin: auto;
+        height: 75%;
+      }
+
+      h6 {
+        background: $light-gray;
+        color: $orange;
+        position: relative;
+        bottom: 22%;
+        left: 30%;
+        width: 20px;
+        height: 20px;
+        margin-left: 30px;
+        border-radius: 50%;
+      }
+
     }
+
   }
 
   .journey-card-content {

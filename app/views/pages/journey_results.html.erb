@@ -28,17 +28,19 @@
               </div>
 
               <div class="journey-card-bottom">
-                <% route[1][:connections].each do |connection| %>
-                  <% connection[:transport_type] %>
-                  <% if ["Train", "Long distance train", "High speed train"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/train-icontrain.png' %>
-                  <% elsif ["Subway", "Commuter train", "Tram"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/subway-iconsubway.png' %>
-                  <% elsif ["Bus"].include? connection[:transport_type] %>
-                    <%= image_tag 'icons/bus-iconbus.png' %>
-                  <% end %>
-
-                <% end %>
+                <% transports = route[1][:connections].map { |el| el[:transport_type] } %>
+                  <div id="transport-icon">
+                    <%= image_tag 'icons/train-icontrain.png' if (Journey::TRAINS & transports).any? %>
+                    <h6><strong><%= Journey::TRAINS.count if (Journey::TRAINS & transports).count != 0 %></strong></h6>
+                  </div>
+                  <div id="transport-icon">
+                    <%= image_tag 'icons/subway-iconsubway.png' if (Journey::SUBWAYS & transports).any? %>
+                    <h6><strong><%= Journey::SUBWAYS.count if (Journey::SUBWAYS & transports).count != 0 %></strong></h6>
+                  </div>
+                  <div id="transport-icon">
+                    <%= image_tag 'icons/bus-iconbus.png' if (Journey::BUS & transports).any? %>
+                    <h6><strong><%= Journey::BUS.count if (Journey::BUS & transports).count != 0 %></strong></h6>
+                  </div>
               </div>
             </div>
           <% end %>
