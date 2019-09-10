@@ -6,8 +6,16 @@
   background-size: cover;
 }
 
-#form-cta .btn-go {
+#home-form-cta .btn-go {
   width: 42%;
+}
+
+#home-form-cta {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  justify-content: space-between;
+  align-content: center;
 }
 
 .flatpickr-input[readonly] {
