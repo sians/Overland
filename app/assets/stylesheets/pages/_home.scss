@@ -97,7 +97,6 @@ text-align: left;
   height: 65%;
 }
 
-
 @media all and (max-width: 767px) {
   .form-inputs {
     display: block;
@@ -108,16 +107,16 @@ text-align: left;
   }
 
   #form-cta, .btn-go {
+
+  .form-container {
+    padding: 15%;
+    text-align: center;
+  }
     width: 100%;
     margin-top: 10px;
   }
 
   .form-div {
     width: 100%;
-  }
-
-  .form-container {
-    padding: 15%;
-    text-align: center;
   }
 }
