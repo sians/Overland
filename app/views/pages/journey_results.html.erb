@@ -4,8 +4,8 @@
         <%= form_tag journey_create_path, method: :post do %>
         <%= text_field_tag :starts_at, nil, class: "string flatpickrcon datepicker flatpickr-input input-field", id: "search_starts_at", placeholder: @token.starts_at, readonly: "readonly" %>
           <div class="form-inputs" id="input-connection">
-            <%= text_field_tag :start_city, nil, value: @token.start_city, id:"resultsform", class: 'input-field' %>
-            <%= text_field_tag :end_city, nil, value: @token.end_city, id:"resultsform", class: 'input-field' %>
+            <%= text_field_tag :start_city, nil, value: @token.start_city, id:"start_city", class: 'input-field' %>
+            <%= text_field_tag :end_city, nil, value: @token.end_city, id:"end_city", class: 'input-field' %>
           </div>
 
           <div id="form-cta" class="form-action">
