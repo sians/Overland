@@ -32,8 +32,8 @@ class PagesController < ApplicationController
 
     @emissions = 0
 
-    unless params[:starts_at].present?
-      params[:starts_at] = Date.today
+    unless @token.starts_at.present?
+      @token.starts_at = Date.today
     else
       Date.parse(params[:starts_at])
     end
@@ -49,7 +49,6 @@ class PagesController < ApplicationController
       geocode_stopovers
       @emissions = EmissionsScraperService.start(@route_connections[0][:total_distance].split(" ").first)
     end
-
   end
 
   private
@@ -68,14 +67,18 @@ class PagesController < ApplicationController
   end
 
   def geocode_stopovers
-    @markers = []
+    @markers = [{ lat: @route_connections.first[1][:connections][0][:start_latitude], lng: @route_connections.first[1][:connections][0][:start_longitude] }]
     @geo_array = []
     @route_connections.each do |route|
       route[1][:connections].each do |connection|
         connection_lat = connection[:end_latitude]
         connection_lng = connection[:end_longitude]
         @geo_array << connection
-        @markers << { lat: connection_lat, lng: connection_lng }
+        @markers << {
+          lat: connection_lat,
+          lng: connection_lng,
+          infoWindow: { content: render_to_string(partial: "/pages/mapbox", locals: { connection: connection, route: route })}
+        }
       end
     end
   end

@@ -7,7 +7,7 @@ class PoisController < ApplicationController
     skip_authorization
     places_service = GooglePlacesService.new(params[:lat], params[:lng])
     @lodgings = places_service.create_pois_array(places_service.fetch_places("lodgings"))
-    @food = places_service.create_pois_array(places_service.fetch_places("food"))
+    @food = places_service.create_pois_array(places_service.fetch_places("restaurant"))
     @point_of_interest = places_service.create_pois_array(places_service.fetch_places("point_of_interest"))
   end
 end

@@ -2,7 +2,18 @@
   margin: 100px 0px 0px 520px;
 }
 
+.modal-title {
+}
+
 .modal-content {
   width: 1100px;
-  height: 85vh;
+  height: 80vh;
 }
+
+.modal-body {
+  overflow: scroll;
+  h4 {
+    text-align: center;
+  }
+}
+

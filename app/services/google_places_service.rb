@@ -8,15 +8,20 @@ class GooglePlacesService
   end
 
 # creates poi instances in the database
-  def create_poi(poi)
+  def create_or_retrieve_poi(poi)
     poi = Poi.new(poi)
-    poi.save
-    poi
+    search = Poi.find_by(google_place_id: poi.google_place_id)
+    if search.present?
+      search
+    else
+      poi.save
+      poi
+    end
   end
 
 # returns an array of 5 poi hashes
   def create_pois_array(json)
-    poi_results = json["results"][0...5].map do |result|
+    poi_results = json["results"][0...4].map do |result|
       poi = {}
       result_json = fetch_place_id(result["place_id"])
       poi[:name] = result["name"]
@@ -27,7 +32,7 @@ class GooglePlacesService
       poi[:phone_number] = result_json["result"]["formatted_phone_number"]
       # pois[:opening_hours] = result_json["opening_hours"]["weekday_text"]
       poi[:website] = result_json["result"]["website"]
-      create_poi(poi)
+      create_or_retrieve_poi(poi)
     end
   end
 

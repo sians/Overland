@@ -1,3 +1,50 @@
-<p><%= food %></p>
-<p><%= lodgings %></p>
-<p><%= point_of_interests %></p>
+<div class="modal-ajax-content">
+  <h4>Restaurants</h4>
+  <div class="food-recommendations">
+    <div class="row">
+      <% food.each do |recommendation| %>
+        <div class="col-6">
+          <div class="recommendation-card">
+            <h5><%= recommendation.name %></h5>
+            <p><%= recommendation.address %></p>
+            <p>
+              <% if recommendation.phone_number.present? %>
+                <%= recommendation.phone_number %>
+                 —
+               <% end %>
+              <% if recommendation.website.present? %>
+                <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
+              <% end %>
+            </p>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <h4>Accomodation</h4>
+  <div class="accomodation-recommendations">
+    <div class="row">
+      <% lodgings.each do |recommendation| %>
+        <div class="col-6">
+          <div class="recommendation-card">
+            <h5><%= recommendation.name %></h5>
+            <p><%= recommendation.address %></p>
+            <p>
+              <% if recommendation.phone_number.present? %>
+                <%= recommendation.phone_number %>
+                 —
+               <% end %>
+              <% if recommendation.website.present? %>
+                <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
