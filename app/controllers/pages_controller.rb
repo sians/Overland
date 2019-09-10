@@ -64,7 +64,7 @@ class PagesController < ApplicationController
   end
 
   def geocode_stopovers
-    @markers = []
+    @markers = [{ lat: @route_connections.first[1][:connections][0][:start_latitude], lng: @route_connections.first[1][:connections][0][:start_longitude] }]
     @geo_array = []
     @route_connections.each do |route|
       route[1][:connections].each do |connection|
