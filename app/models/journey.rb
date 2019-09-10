@@ -10,6 +10,10 @@ class Journey < ApplicationRecord
   validates :token, uniqueness: true
   before_validation :generate_token, on: :create
 
+  TRAINS = ["Train", "Long distance train", "High speed train"]
+  SUBWAYS = ["Subway", "Commuter train", "Tram"]
+  BUS = ["Bus"]
+
   def generate_token
     begin
       self.token = SecureRandom.urlsafe_base64(10, false)

@@ -57,9 +57,9 @@ class PagesController < ApplicationController
         lat: location.latitude,
         lng: location.longitude
       }
-      start_city_lat = Geocoder.search(@geo_array.first[:origin_city]).first.data["lat"]
-      start_city_lng = Geocoder.search(@geo_array.first[:origin_city]).first.data["lon"]
-      @markers << { lat: start_city_lat, lng: start_city_lng }
+      # start_city_lat = Geocoder.search(@geo_array.first[:origin_city]).first.data["lat"]
+      # start_city_lng = Geocoder.search(@geo_array.first[:origin_city]).first.data["lon"]
+      # @markers << { lat: start_city_lat, lng: start_city_lng }
     end
   end
 
