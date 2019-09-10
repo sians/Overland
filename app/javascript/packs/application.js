@@ -1,6 +1,7 @@
 import "bootstrap";
 import { initAutocomplete } from "../plugins/init_autocomplete.js";
 import "../plugins/flatpickr";
+import { previewImageOnFileSelect } from "../components/photo_preview.js";
 
 initAutocomplete();
 
@@ -31,6 +32,9 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   });
 
   flightPath.setMap(map);
+}
+
+
 
   // function initMap() {
   // var map = {markers[0].lat, markers[0].lng};
@@ -80,11 +84,6 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   //     }
   //   }
 
-  marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });
-
-}
 
 // var map, popup, Popup;
 

@@ -1,33 +1,46 @@
 form {
-  // width: 500px;
   margin: auto;
   display: block;
 
   .login-form-inputs {
+    width: 50%;
+    margin: auto;
     display: block;
   }
 
-  .login-input-field {
-    margin-bottom: 20px;
-  }
+  // .login-input-field {
+  //   margin-bottom: 20px;
+  // }
 
   #form-cta {
+    width: 50%;
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 0px;
     justify-content: space-between;
     align-content: center;
+    padding-bottom: 15px;
   }
 
 }
 
+.upload-photo {
+  border: #d3d3d3 solid 1px;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
+}
+
   .form-h2 {
+    padding-top: 50px;
     margin-bottom: 50px;
     text-align: center;
     margin-top: 75px;
   }
 
   #form-container {
-    width: 400px;
     text-align: center;
     margin: auto;
   }
@@ -40,3 +53,7 @@ form {
   background: white;
   border-radius: 2px;
 }
+
+// #photo-input {
+//   visibility: hidden;
+// }
