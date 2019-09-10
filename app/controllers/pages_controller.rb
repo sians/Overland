@@ -32,9 +32,6 @@ class PagesController < ApplicationController
 
     unless @token.starts_at.present?
       params[:starts_at] = Date.today
-
-    #if params[:starts_at].nil?
-     # params[:starts_at] = Date.today
     else
       Date.parse(params[:starts_at])
     end

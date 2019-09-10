@@ -12,7 +12,7 @@ class Journey < ApplicationRecord
 
   def generate_token
     begin
-      self.token = SecureRandom.urlsafe_base64(64, false)
+      self.token = SecureRandom.urlsafe_base64(10, false)
     end while self.class.find_by(token: token)
   end
 
