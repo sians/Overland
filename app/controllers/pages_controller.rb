@@ -30,6 +30,8 @@ class PagesController < ApplicationController
     @token = JourneyToken.find_by(token: params[:token])
     # WHOEVER SEES THIS AND KNOWS HOW TO IMPROVE THIS STATEMENT, FEEL FREE!
 
+    @emissions = 0
+
     unless @token.starts_at.present?
       @token.starts_at = Date.today
     else
@@ -45,6 +47,7 @@ class PagesController < ApplicationController
       #geocode_cities(@token.start_city, @token.end_city)
       @route_connections = @directions.get_route_connections(@token.start_city, @token.end_city, current_user.storage)
       geocode_stopovers
+      @emissions = EmissionsScraperService.start(@route_connections[0][:total_distance].split(" ").first)
     end
   end
 

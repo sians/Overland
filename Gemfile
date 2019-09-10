@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
+gem "nokogiri"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
