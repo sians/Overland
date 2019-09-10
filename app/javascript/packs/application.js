@@ -86,11 +86,24 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
 }
 
-var map, popup, Popup;
+// var map, popup, Popup;
 
-  Popup = createPopupClass();
-  popup = new Popup(
-      new google.maps.LatLng(-33.866, 151.196),
-      document.getElementById('content'));
-  popup.setMap(map);
+//   Popup = createPopupClass();
+//   popup = new Popup(
+//       new google.maps.LatLng(-33.866, 151.196),
+//       document.getElementById('content'));
+//   popup.setMap(map);
+
+// const pagesJourneyConnnections = document.querySelectorAll(".pages-journey_connections")
+
+// if(pagesJourneyConnnections) {
+  // const checkRecommendations = document.querySelectorAll(".btn-recommendations")
+  // checkRecommendations.forEach((button) => {
+  //   button.addEventListener("click", (event) => {
+  //     console.log(event.currentTarget);
+  //   });
+  // });
+
+
+// }
 
