@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     @token = JourneyToken.find_by(token: params[:token])
     # WHOEVER SEES THIS AND KNOWS HOW TO IMPROVE THIS STATEMENT, FEEL FREE!
 
-    unless @token.starts_at.present?
+    unless params[:starts_at].present?
       params[:starts_at] = Date.today
     else
       Date.parse(params[:starts_at])
