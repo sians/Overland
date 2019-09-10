@@ -19,7 +19,7 @@
           <div class="connection-card-bottom">
             <div class="connection-detail">
               <div class="connection-city">
-                <p><%= Geocoder.search([connection[:start_latitude], connection[:start_longitude]]).first.city%> - <strong><%=Time.at(connection[:start_time]).strftime("%Hh:%Mm") %></strong></p>
+                <p><%= Geocoder.search([connection[:start_latitude], connection[:start_longitude]]).first.city%> - <strong><%=Time.at(connection[:start_time]).strftime("%H:%Mm") %></strong></p>
                 <p class="station"><strong> <%= connection[:origin_city] %></strong></p>
               </div>
               <div class="d-flex icon-row" style="justify-content: space-between">
@@ -33,11 +33,11 @@
                   <% end %>
                 </div>
                 <div class="duration">
-                  <strong> <%= (Time.at(connection[:end_time]) - (connection[:start_time])).utc.strftime("%Hh:%Mm") %></strong>
+                  <strong> <%= (Time.at(connection[:end_time]) - (connection[:start_time])).utc.strftime("%Hh%Mm") %></strong>
                 </div>
               </div>
             <div class="connection-city">
-              <p><%= Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.city%> - <strong><%=Time.at(connection[:end_time]).strftime("%Hh:%Mm") %></strong></p>
+              <p><%= Geocoder.search([connection[:end_latitude], connection[:end_longitude]]).first.city%> - <strong><%=Time.at(connection[:end_time]).strftime("%H:%Mm") %></strong></p>
               <p class="station"><strong><%= connection[:destination_city] %></strong></p>
 
 
