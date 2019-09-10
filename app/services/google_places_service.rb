@@ -16,7 +16,7 @@ class GooglePlacesService
 
 # returns an array of 5 poi hashes
   def create_pois_array(json)
-    poi_results = json["results"][0...5].map do |result|
+    poi_results = json["results"][0...2].map do |result|
       poi = {}
       result_json = fetch_place_id(result["place_id"])
       poi[:name] = result["name"]

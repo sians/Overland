@@ -129,5 +129,23 @@
   }
 }
 
+// R E C O M M E N D A T I O N      C A R D S
+.recommendation-card {
+  background-color: $light-gray;
+  width: 480px;
+  height: 150px;
+  margin: 15px 0px 15px 20px;
+  padding: 10px;
+  h5 {
+    margin: 0px;
+  }
+}
 
-
+.modal-ajax-content {
+  h4:not(:first-child) {
+    margin-top: 30px;
+  }
+  a {
+    color: $overland;
+  }
+}

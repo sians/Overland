@@ -34,7 +34,7 @@
                     <h4><%= journey[:start_city].split(",").first %> – <%= journey[:end_city].split(",").first %></h4>
 
                     <p><%= journey[:total_duration] %></p>
-                    <%= link_to 'View trip', journey_path(journey), class: 'btn btn-go' %>
+                    <%= link_to 'View trip', journey_path(journey.id), class: 'btn btn-go' %>
                   </div>
                   <div class="my-route-card-content">
 
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="my-route-card-links">
-                      <%= link_to journeys_path(journey), method: :patch, title: "edit journey" do %>
+                      <%= link_to journeys_path(journey.id), method: :patch, title: "edit journey" do %>
                         <%= image_tag 'icons/edit.png', class: 'my-route-icon' %>
                       <% end %>
                       <% unless journey[:archived] %>
@@ -65,7 +65,7 @@
                           <%= image_tag 'icons/archive.png', class: 'my-route-icon' %>
                         <% end %>
                       <% end %>
-                      <%= link_to journeys_path(journey), method: :delete, title: "delete journey" do %>
+                      <%= link_to journeys_path(journey.id), method: :delete, title: "delete journey" do %>
                         <%= image_tag 'icons/garbage.png', class: 'my-route-icon' %>
                       <% end %>
                     </div>
@@ -81,7 +81,7 @@
                   <h4><%= journey[:start_city].split(",").first %> – <%= journey[:end_city].split(",").first %></h4>
 
                   <p><%= journey[:total_duration] %></p>
-                  <%= link_to 'View trip', journey_path(journey), class: 'btn btn-cancel' %>
+                  <%= link_to 'View trip', journey_path(journey.id), class: 'btn btn-cancel' %>
                 </div>
                 <div class="my-route-card-content">
 
