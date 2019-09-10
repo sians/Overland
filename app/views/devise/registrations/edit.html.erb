@@ -1,43 +1,88 @@
 <div class="main-container" id="form-container">
 
-  <h2 style="margin-top: 20px">Edit your profile</h2>
+  <div class="col-6 col-lg-6">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <h2 style="margin-top: 50px; margin-bottom: 50px; text-align: center;">Edit your profile</h2>
 
-  <div class="login-form-inputs">
-    <%= f.input :username, required: true, autofocus: true %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-    <%= f.input :email, required: true, autofocus: true %>
+      <div class="login-form-inputs">
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <div class="login-input-field">
+          <%= f.input :username,
+                      label: false,
+                      placeholder: "Username",
+                      required: true,
+                      autofocus: true %>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :avatar,
+                      input_html:
+                        { class: 'hidden',
+                          id: 'photo-input'
+                        },
+                      label_html:
+                        { class: 'upload-photo'},
+                      label: '📷 Upload a photo' %>
+          <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+          <%= f.input :avatar_cache, as: :hidden %>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :email,
+                      label: false,
+                      placeholder: "Email",
+                      required: true,
+                      autofocus: true %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :password,
+                      label: false,
+                      placeholder: "New password",
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :password_confirmation,
+                      label: false,
+                      placeholder: "Confirm new password",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :current_password,
+                      label: false,
+                      placeholder: "Current password",
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Update", class: "btn btn-go", id: "form-cta"%>
+      </div>
+
+      <div id="form-cta">
+        <%= link_to "Back to Profile", profile_path %><br />
+      </div>
+
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update", class: "btn btn-go btn-submit", style: "width: 100%"%>
-  </div>
-  <div id="form-cta">
-    <%= link_to "Back to Profile", profile_path %><br />
-  </div>
-<% end %>
+    <div class="col-6 col-lg-6">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt="">
+    </div>
 
-<!--
-<h3>Cancel my account</h3>
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: "btn btn-go btn-submit", style: "width: 100%" %></p>
-
-<%= link_to "Back", :back %>
-
+</div>

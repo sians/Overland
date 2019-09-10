@@ -1,55 +1,63 @@
 <div class="main-container" id="form-container">
 
-  <h2 class="form-h2">Create account</h2>
+  <div class="col-6 col-lg-6">
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <h2 class="form-h2">Create account</h2>
 
-    <div class="login-form-inputs">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-      <div class="login-input-field">
-        <%= f.input :username,
-                    label: false,
-                    placeholder: "Username",
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "username" } %>
+      <div class="login-form-inputs">
+
+        <div class="login-input-field">
+          <%= f.input :username,
+                      label: false,
+                      placeholder: "Username",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "username" } %>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :email,
+                      label: false,
+                      placeholder: "Email",
+                      required: true,
+                      input_html: { autocomplete: "email" }%>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :password,
+                      label: false,
+                      placeholder: "Password",
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+
+        <div class="login-input-field">
+          <%= f.input :password_confirmation,
+                      label: false,
+                      placeholder: "Confirm Password",
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+
       </div>
 
-      <div class="login-input-field">
-        <%= f.input :email,
-                    label: false,
-                    placeholder: "Email",
-                    required: true,
-                    input_html: { autocomplete: "email" }%>
+      <div id="form-cta">
+        <%= f.button :submit, "Sign Up", class: "btn btn-go btn-submit", style: "width: 100%" %>
       </div>
+    <% end %>
 
-      <div class="login-input-field">
-        <%= f.input :password,
-                    label: false,
-                    placeholder: "Password",
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
-      </div>
-
-      <div class="login-input-field">
-        <%= f.input :password_confirmation,
-                    label: false,
-                    placeholder: "Confirm Password",
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
-      </div>
+    <div style="text-align: center">
+      <%= render "devise/shared/links" %>
+    </div>
 
     </div>
 
-    <div id="form-cta">
-      <%= f.button :submit, "Sign Up", class: "btn btn-go btn-submit", style: "width: 100%" %>
+    <div class="col-6 col-lg-6">
+      <img src="https://images.unsplash.com/photo-1492129214534-08dd697407ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="">
     </div>
-  <% end %>
-
-  <div style="text-align: center">
-    <%= render "devise/shared/links" %>
-  </div>
 
 </div>
