@@ -71,7 +71,11 @@ class PagesController < ApplicationController
         connection_lat = connection[:end_latitude]
         connection_lng = connection[:end_longitude]
         @geo_array << connection
-        @markers << { lat: connection_lat, lng: connection_lng }
+        @markers << {
+          lat: connection_lat,
+          lng: connection_lng,
+          infoWindow: { content: render_to_string(partial: "/pages/mapbox", locals: { connection: connection, route: route })}
+        }
       end
     end
   end
