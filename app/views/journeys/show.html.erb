@@ -28,7 +28,7 @@
               <% end %>
             </div>
             <div class="route-connections">
-              <h4><strong> <%= Geocoder.search(connection[:origin_city]).first.country %></strong> - <%= connection[:origin_city] %></h4>
+              <h4><strong> <%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.country %></strong> - <%= connection[:origin_city] %></h4>
               <p></p>
               <h4><strong> <%= Geocoder.search([connection[:end_latitude],connection[:end_longitude]]).first.country %></strong> - <%= connection[:destination_city] %></h4>
               <p></p>
