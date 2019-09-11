@@ -18,12 +18,16 @@ class PagesController < ApplicationController
   end
 
   def journey_create
-    journey = JourneyToken.create(
+    journey = JourneyToken.new(
       start_city: params[:start_city],
       end_city: params[:end_city],
       starts_at: params[:starts_at]
     )
-    redirect_to journey_results_path(token: journey.token)
+    if journey.save
+      journey_results_path(token: journey.token)
+    else
+      root_path
+    end
   end
 
 

@@ -21,23 +21,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  h1 {
-    color: white;
-    font-weight: 200;
-    font-size: 24px;
-    margin: 0px;
-  }
-  p {
-    color: white;
-    margin: 0px;
-    font-weight: fine;
-  }
-  .btn-book {
-    height: 40px;
-  }
-}
 
-// .route-connections {
-//   padding-right: 30px;
-// }
+    h1 {
+      color: white;
+      font-weight: 200;
+      font-size: 24px;
+      margin: 0px;
+    }
+
+    p {
+      color: white;
+      margin: 0px;
+      font-weight: fine;
+    }
+
+    .btn-book {
+      height: 40px;
+    }
+}
 
