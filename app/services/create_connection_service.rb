@@ -18,12 +18,23 @@ class CreateConnectionService
   # save now valid connections
   # RETURN saved Journey instance
 
-  def add_connections_to_journey(json, user)
+  def add_connections_to_journey(json, user, poi_ids)
     journey = create_journey(json, user)
     connections = create_connections(json)
     connections.each do |connection|
       connection.journey = journey
       connection.save
+      # check params for the ids of POI to creat PoiBookings
+      if poi_ids.keys.include? connection.start_time
+        ids = poi_ids[connection.start_time].split(",")
+        ids.each do |id|
+          poi = Poi.find(id.to_i)
+          poi_booking = PoiBooking.new
+          poi_booking.poi = poi
+          poi_booking.connection = connection
+          poi_booking.save
+        end
+      end
     end
     journey
   end
