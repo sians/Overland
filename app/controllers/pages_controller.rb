@@ -23,20 +23,20 @@ class PagesController < ApplicationController
       end_city: params[:end_city],
       starts_at: params[:starts_at]
     )
+
     if journey.save
-      journey_results_path(token: journey.token)
+      redirect_to journey_results_path(token: journey.token)
     else
-      root_path
+      redirect_to root_path
     end
   end
 
   def journey_results
     @token = JourneyToken.find_by(token: params[:token])
-    # WHOEVER SEES THIS AND KNOWS HOW TO IMPROVE THIS STATEMENT, FEEL FREE!
 
     @emissions = 0
 
-    unless @token.starts_at.present?
+    if @token.starts_at.blank?
       @token.starts_at = Date.today
     else
       Date.parse(params[:starts_at])
