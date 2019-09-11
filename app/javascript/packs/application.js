@@ -106,32 +106,42 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
 // }
 
-const modalDialog = document.querySelector(".modal-dialog")
-if (modalDialog) {
-  const addPoiButtons = document.querySelectorAll(".add-poi")
-  addPoiButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const id = event.currentTarget.id.split(",")[0];
-      const poi_id = event.currentTarget.id.split(",")[1];
-      const fieldID = `connections_${id}`;
-      let fieldValue = document.querySelector(`#${fieldID}`).value;
-      if (fieldValue) {
-        let field_ids = fieldValue.split(",");
-        if (field_ids.includes(poi_id)) {
-          // delete the id from the array
-          field_ids = field_ids.filter(id => poi_id);
-          fieldValue = field_ids.join(",");
-        } else {
-          // add to the array
-          field_ids.push(poi_id);
-          fieldValue = field_ids.join(",");
-        };
-      } else {
-        fieldValue = poi_id;
-      };
-      document.querySelector(`#${fieldID}`).value = fieldValue
-    })
-  })
-}
+// const modalDialog = document.querySelector(".modal-dialog")
+// if (modalDialog) {
+//   const addPoiButtons = document.querySelectorAll(".add-poi")
+//   addPoiButtons.forEach((button) => {
+//     button.addEventListener("click", (event) => {
+//       const id = event.currentTarget.id.split(",")[0];
+//       const poi_id = event.currentTarget.id.split(",")[1];
+//       const fieldID = `connections_${id}`;
+//       let fieldValue = document.querySelector(`#${fieldID}`).value;
+//       if (fieldValue) {
+//         let field_ids = fieldValue.split(",");
+//         if (field_ids.includes(poi_id)) {
+//           // delete the id from the array
+//           field_ids = field_ids.filter(id => poi_id);
+//           fieldValue = field_ids.join(",");
+//         } else {
+//           // add to the array
+//           field_ids.push(poi_id);
+//           fieldValue = field_ids.join(",");
+//         };
+//       } else {
+//         fieldValue = poi_id;
+//       };
+//       document.querySelector(`#${fieldID}`).value = fieldValue
+//       console.log(event.currentTarget.parentElement.classList)
+//       const parentElemClasses = event.currentTarget.parentElement.classList
+//       if (parentElemClasses.contains("selected")) {
+//         console.log("contains")
+//         parentElemClasses.remove("selected");
+//       } else {
+//         console.log("does not contains")
+//         parentElemClasses.add("selected");
+//       };
+
+//     })
+//   })
+// }
 
 

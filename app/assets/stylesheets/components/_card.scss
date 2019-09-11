@@ -133,11 +133,25 @@
 .recommendation-card {
   background-color: $light-gray;
   width: 480px;
-  height: 150px;
+  height: 170px;
   margin: 15px 0px 15px 20px;
-  padding: 10px;
-  h5 {
-    margin: 0px;
+  border-radius: 5px;
+  .recommendation-card-header {
+
+    h5 {
+      color: white;
+      margin: 0px;
+      background-color: gray;
+      border-radius: 5px 5px 0px 0px;
+      padding: 10px;
+    }
+  }
+  .recommendation-card-content {
+    padding: 10px;
+    p {
+      margin: 0px;
+      padding: 0px;
+    }
   }
 }
 
@@ -147,5 +161,13 @@
   }
   a {
     color: $overland;
+  }
+}
+
+.recommendation-card.selected {
+  .recommendation-card-header {
+    h5 {
+      background-color: #AED1B8;
+    }
   }
 }
