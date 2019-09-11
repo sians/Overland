@@ -9,7 +9,4 @@ class GeocodeScraperService
 
     html_doc.search("#committee_carbon > p.report").text.split(":").last.strip
   end
-
-https://www.mapdevelopers.com/geocode_tool.php?address=gare%20de%20montparnasse
-
 end
