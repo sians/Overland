@@ -1,5 +1,5 @@
 class ConnectionsController < ApplicationController
-  before_action :fetch_connection, only: %i[index]
+  before_action :fetch_connection, only: %i[edit index]
 
   def index
     @journey = Journey.find(params[:journey_id])
@@ -19,6 +19,20 @@ class ConnectionsController < ApplicationController
 
     if @connection.save
       redirect_to @journey, notice: 'Added connection'
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @connection = Connection.find(params[:id])
+    authorize @connection
+    @connection.booking_status = !@connection.booking_status
+    if @connection.save
+      redirect_to journey_path(@connection.journey_id), notice: 'Updated connection'
     else
       render :new
     end

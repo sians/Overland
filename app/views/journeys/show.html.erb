@@ -14,8 +14,8 @@
     </div>
     <div class="route-connection-cards">
       <% @journey.connections.reverse.each do |connection| %>
+        <% @connection = connection %>
         <div class="route-connection-card">
-
           <div class="line"></div>
           <div class="route-connection-content d-flex">
             <div>
@@ -39,6 +39,12 @@
             <div>
               <p>Service Provider</p>
               <%= link_to connection[:provider], connection[:provider_website], target: :_blank %>
+            </div>
+            <div>
+              <%= simple_form_for @connection do |f| %>
+                <%= f.input :booking_status %>
+                <%= f.button :submit, class:"btn btn-go" %>
+              <% end %>
             </div>
           </div>
         </div>
