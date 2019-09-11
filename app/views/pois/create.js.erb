@@ -8,6 +8,7 @@
 
 // const modalTitle
 
+
 function addToList() {
   const addPoiButtons = document.querySelectorAll(".add-poi")
   addPoiButtons.forEach((button) => {
@@ -20,7 +21,8 @@ function addToList() {
         let field_ids = fieldValue.split(",");
         if (field_ids.includes(poi_id)) {
           // delete the id from the array
-          field_ids = field_ids.filter(id => poi_id);
+          console.log("includes")
+          field_ids = field_ids.filter(id => id != poi_id);
           fieldValue = field_ids.join(",");
         } else {
           // add to the array
