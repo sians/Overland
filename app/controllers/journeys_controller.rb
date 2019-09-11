@@ -14,7 +14,7 @@ class JourneysController < ApplicationController
 
   def create
     connection_service = CreateConnectionService.new
-    @journey = connection_service.add_connections_to_journey(current_user.storage, current_user)
+    @journey = connection_service.add_connections_to_journey(current_user.storage, current_user, params["connections"])
     authorize @journey
     redirect_to profile_path
   end

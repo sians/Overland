@@ -4,7 +4,14 @@
     <div class="sidebar">
       <div class="btn-container">
         <%#= link_to 'Back to Journeys', journey_results_path, class: 'btn btn-back' %>
-        <%= link_to 'Save Trip', journeys_path, method: :post, class: 'btn btn-book' %>
+        <%= form_tag journeys_path, method: :post do %>
+          <% route_connections.each do |route| %>
+            <% route[1][:connections].each do |connection| %>
+              <%= hidden_field_tag "connections[#{connection[:start_time]}]" %>
+            <% end %>
+          <% end %>
+          <%= submit_tag 'Save Trip', class: 'btn btn-book' %>
+        <% end %>
       </div>
 
       <% unless route_connections.nil? %>
@@ -44,6 +51,7 @@
               <%= form_tag new_pois_path, method: :post, remote: true do %>
                 <%= hidden_field_tag "lat", connection[:end_latitude] %>
                 <%= hidden_field_tag "lng", connection[:end_longitude] %>
+                <%= hidden_field_tag "start_time", connection[:start_time] %>
                 <%= submit_tag "Check Recommendations", class: "btn btn-go btn-recommendations", data: { toggle: 'modal', target: '.bd-example-modal-lg'} %>
               <% end %>
 

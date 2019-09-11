@@ -28,6 +28,8 @@
         <div class="tab-pane fade active show" id="profile-classic" role="tabpanel" aria-labelledby="profile-tab-classic">
           <div class="my-routes">
             <% current_user.journeys.reverse.each do |journey| %>
+            <%# raise %>
+
               <% unless journey.archived %>
                 <div class="my-route-card">
                   <div class="my-route-card-header">
@@ -42,8 +44,8 @@
                       <div class="journey-info">
                         <p><span class="underlined">
                         Departing:</span> <%= journey[:start_city] %> at <span class="datetime"><%= Time.at(journey.connections.first[:start_time].to_i).strftime("%T on %A, %B %e, %Y") %></span></p>
-                        <p>Covering <span class="bold"><%= journey[:total_distance] %></span></p>
-                        <p><%= journey.connections.size %> connections</p>
+                        <p>Covering <span class="bold"><%= journey[:total_distance] %></span>, in <span class="bold"><%= journey.connections.size %></span> connections</p>
+                        <p>Visiting <span class="bold"><%#= journey.poi_bookings.size %></span> recommendations</p>
                         <p><span class="underlined">Arriving:</span> <%= journey[:end_city] %> at <span class="datetime"><%= Time.at(journey.connections.last[:end_time].to_i).strftime("%T on %A, %B %e, %Y") %></span></p>
                       </div>
                       <div class="journey-icons">
@@ -89,8 +91,8 @@
                     <div class="journey-info">
                       <p><span class="underlined">
                       Departing:</span> <%= journey[:start_city] %> at <span class="datetime"><%= Time.at(journey.connections.first[:start_time].to_i).strftime("%T on %A, %B %e, %Y") %></span></p>
-                      <p>Covering <span class="bold"><%= journey[:total_distance] %></span></p>
-                      <p><%= journey.connections.size %> connections</p>
+                      <p>Covering <span class="bold"><%= journey[:total_distance] %></span>, in <span class="bold"><%= journey.connections.size %></span> connections</p>
+                      <p>Visiting <span class="bold"><%#= journey.poi_bookings.size %></span> recommendations</p>
                       <p><span class="underlined">Arriving:</span> <%= journey[:end_city] %> at <span class="datetime"><%= Time.at(journey.connections.last[:end_time].to_i).strftime("%T on %A, %B %e, %Y") %></span></p>
                     </div>
                     <div class="journey-icons">
