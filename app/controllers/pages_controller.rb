@@ -26,6 +26,7 @@ class PagesController < ApplicationController
     redirect_to journey_results_path(token: journey.token)
   end
 
+
   def journey_results
     @token = JourneyToken.find_by(token: params[:token])
     # WHOEVER SEES THIS AND KNOWS HOW TO IMPROVE THIS STATEMENT, FEEL FREE!
