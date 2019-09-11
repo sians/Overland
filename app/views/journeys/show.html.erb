@@ -18,34 +18,36 @@
         <div class="route-connection-card">
           <div class="line"></div>
           <div class="route-connection-content d-flex">
-            <div data-toggle="tooltip" title="<%=connection[:transport_type]%>">
-              <% if Journey::TRAINS.include? connection[:transport_type] %>
-              <%= image_tag 'icons/train-icontrain.png' %>
-              <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
-              <%= image_tag 'icons/subway-iconsubway.png' %>
-              <% elsif Journey::BUS.include? connection[:transport_type] %>
-              <%= image_tag 'icons/bus-iconbus.png' %>
-              <% end %>
+            <div class="d-block">
+              <div data-toggle="tooltip" title="<%=connection[:transport_type]%>">
+                <% if Journey::TRAINS.include? connection[:transport_type] %>
+                <%= image_tag 'icons/train-icontrain.png' %>
+                <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
+                <%= image_tag 'icons/subway-iconsubway.png' %>
+                <% elsif Journey::BUS.include? connection[:transport_type] %>
+                <%= image_tag 'icons/bus-iconbus.png' %>
+                <% end %>
+               </div>
+               <div class="duration">
+                <strong> <%= (Time.at(connection[:end_time].to_i) - (connection[:start_time].to_i)).utc.strftime("%Hh%Mm") %></strong>
+               </div>
             </div>
             <div class="route-connections">
-              <h4><strong> <%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.country %></strong> - <%= connection[:origin_city] %></h4>
+              <h4><%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.country %> - <strong> <%= connection[:origin_city] %></strong></h4>
               <p></p>
-              <h4><strong> <%= Geocoder.search([connection[:end_latitude],connection[:end_longitude]]).first.country %></strong> - <%= connection[:destination_city] %></h4>
+              <h4><%= Geocoder.search([connection[:end_latitude],connection[:end_longitude]]).first.country %> - <strong> <%= connection[:destination_city] %></strong></h4>
               <p></p>
-            </div>
-            <div class="duration">
-              <strong> <%= (Time.at(connection[:end_time].to_i) - (connection[:start_time].to_i)).utc.strftime("%Hh%Mm") %></strong>
             </div>
             <div>
               <p>Service Provider</p>
               <%= link_to connection[:provider], connection[:provider_website], target: :_blank %>
             </div>
-            <div>
+<!--             <div>
               <%= simple_form_for @connection do |f| %>
                 <%= f.input :booking_status, label: "Already Booked?" %>
                 <%= f.button :submit, class:"btn btn-go" %>
               <% end %>
-            </div>
+            </div> -->
           </div>
         </div>
       <% end %>
