@@ -63,7 +63,7 @@ function addToList() {
 };
 
 function populateModal() {
-  const modalBody = document.getElementById('recommendations');
+  const modalBody = document.getElementById('recommendations_<%= @start_time %>');
   modalBody.innerHTML = '<%= j render "pois/list", lodgings: @lodgings, food: @food, point_of_interests: @point_of_interests, start_time: @start_time %>'
   checkSelectedClass()
   addToList();
