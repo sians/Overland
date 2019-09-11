@@ -18,7 +18,7 @@
         <div class="route-connection-card">
           <div class="line"></div>
           <div class="route-connection-content d-flex">
-            <div>
+            <div data-toggle="tooltip" title="<%=connection[:transport_type]%>">
               <% if Journey::TRAINS.include? connection[:transport_type] %>
               <%= image_tag 'icons/train-icontrain.png' %>
               <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
@@ -42,7 +42,7 @@
             </div>
             <div>
               <%= simple_form_for @connection do |f| %>
-                <%= f.input :booking_status %>
+                <%= f.input :booking_status, label: "Already Booked?" %>
                 <%= f.button :submit, class:"btn btn-go" %>
               <% end %>
             </div>
