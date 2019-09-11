@@ -35,8 +35,8 @@ class PagesController < ApplicationController
 
     unless @token.starts_at.present?
       @token.starts_at = Date.today
-    else
-      Date.parse(params[:starts_at])
+    #else
+    #  Date.parse(params[:starts_at])
     end
 
     if @token.start_city.empty? || @token.end_city.empty?
