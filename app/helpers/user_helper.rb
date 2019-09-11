@@ -4,7 +4,7 @@ module UserHelper
       cl_image_path user.avatar_url
     else
       # asset_url ''
-      'https://www.theflavorbender.com/wp-content/uploads/2017/07/Magical-Color-Changing-Cocktails-The-Flavor-Bender-8.jpg'
+      'https://res.cloudinary.com/djkvtunck/image/upload/v1568216783/j54mfn75mceuggabjkkt.png'
     end
   end
 end
