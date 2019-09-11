@@ -19,7 +19,7 @@
           <div class="line"></div>
           <div class="route-connection-content d-flex">
             <div class="d-block">
-              <div>
+              <div data-toggle="tooltip" title="<%=connection[:transport_type]%>">
                 <% if Journey::TRAINS.include? connection[:transport_type] %>
                 <%= image_tag 'icons/train-icontrain.png' %>
                 <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
@@ -27,10 +27,10 @@
                 <% elsif Journey::BUS.include? connection[:transport_type] %>
                 <%= image_tag 'icons/bus-iconbus.png' %>
                 <% end %>
-              </div>
-              <div class="duration">
+               </div>
+               <div class="duration">
                 <strong> <%= (Time.at(connection[:end_time].to_i) - (connection[:start_time].to_i)).utc.strftime("%Hh%Mm") %></strong>
-              </div>
+               </div>
             </div>
             <div class="route-connections">
               <h4><%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.country %> - <strong> <%= connection[:origin_city] %></strong></h4>
@@ -44,7 +44,7 @@
             </div>
 <!--             <div>
               <%= simple_form_for @connection do |f| %>
-                <%= f.input :booking_status %>
+                <%= f.input :booking_status, label: "Already Booked?" %>
                 <%= f.button :submit, class:"btn btn-go" %>
               <% end %>
             </div> -->
