@@ -14,11 +14,11 @@
     </div>
     <div class="route-connection-cards">
       <% @journey.connections.reverse.each do |connection| %>
+        <% @connection = connection %>
         <div class="route-connection-card">
-
           <div class="line"></div>
           <div class="route-connection-content d-flex">
-            <div>
+            <div data-toggle="tooltip" title="<%=connection[:transport_type]%>">
               <% if Journey::TRAINS.include? connection[:transport_type] %>
               <%= image_tag 'icons/train-icontrain.png' %>
               <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
@@ -28,7 +28,7 @@
               <% end %>
             </div>
             <div class="route-connections">
-              <h4><strong> <%= Geocoder.search(connection[:origin_city]).first.country %></strong> - <%= connection[:origin_city] %></h4>
+              <h4><strong> <%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.country %></strong> - <%= connection[:origin_city] %></h4>
               <p></p>
               <h4><strong> <%= Geocoder.search([connection[:end_latitude],connection[:end_longitude]]).first.country %></strong> - <%= connection[:destination_city] %></h4>
               <p></p>
@@ -39,6 +39,12 @@
             <div>
               <p>Service Provider</p>
               <%= link_to connection[:provider], connection[:provider_website], target: :_blank %>
+            </div>
+            <div>
+              <%= simple_form_for @connection do |f| %>
+                <%= f.input :booking_status, label: "Already Booked?" %>
+                <%= f.button :submit, class:"btn btn-go" %>
+              <% end %>
             </div>
           </div>
         </div>

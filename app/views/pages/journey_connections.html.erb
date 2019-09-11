@@ -52,8 +52,10 @@
                 <%= hidden_field_tag "lat", connection[:end_latitude] %>
                 <%= hidden_field_tag "lng", connection[:end_longitude] %>
                 <%= hidden_field_tag "start_time", connection[:start_time] %>
-                <%= submit_tag "Check Recommendations", class: "btn btn-go btn-recommendations", data: { toggle: 'modal', target: '.bd-example-modal-lg'} %>
+                <%= submit_tag "Check Recommendations", class: "btn btn-go btn-recommendations", data: { toggle: 'modal', target: "#modal_#{connection[:start_time]}"} %>
               <% end %>
+
+              <%= render 'shared/modal', id: connection[:start_time] %>
 
               <%#= link_to 'Check Recommendations', bookings_path, class: 'btn btn-go' %>
             </div>

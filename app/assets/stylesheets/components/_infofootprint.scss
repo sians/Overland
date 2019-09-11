@@ -1,0 +1,31 @@
+.infocarbonspace {
+  margin-top: 35px;
+  margin-left: 3.5%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #9CB4BE;
+  width: 391px;
+  height: auto;
+  border: solid lightgreen;
+  text-align: center;
+}
+
+.infocarbonspace img {
+  width: 45%;
+  padding-top: 6%;
+  transition: all 10s ease;
+  // transition-timing-function: ease-out;
+  // transition-delay: 3s;
+  &:hover {
+    width: 60%;
+  }
+}
+
+.savings {
+  font-weight: bold;
+}
+
+.thanks {
+  margin-top:4%;
+}
