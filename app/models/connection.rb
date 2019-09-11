@@ -1,5 +1,6 @@
 class Connection < ApplicationRecord
   belongs_to :journey
+  has_many :poi_bookings
 
   validates :name, presence: true
   validates :origin_city, presence: true, allow_blank: false

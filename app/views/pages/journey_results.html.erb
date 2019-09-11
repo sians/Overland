@@ -1,11 +1,11 @@
 <div class="main-container">
     <div class="sidebar">
       <div class="form-div" id="search-con-page">
-        <%= form_tag journey_results_path, method: :post do %>
-        <%= text_field_tag :starts_at, nil, class: "string flatpickrcon datepicker flatpickr-input input-field", id: "search_starts_at", value: @token.starts_at, readonly: "readonly" %>
+        <%= form_tag journey_create_path, method: :post do %>
+        <%= text_field_tag :starts_at, nil, class: "string flatpickrcon datepicker flatpickr-input input-field", id: "search_starts_at", placeholder: @token.starts_at, readonly: "readonly" %>
           <div class="form-inputs" id="input-connection">
-            <%= text_field_tag :start_city, nil, value: @token.start_city, id:"resultsform", class: 'input-field' %>
-            <%= text_field_tag :end_city, nil, value: @token.end_city, id:"resultsform", class: 'input-field' %>
+            <%= text_field_tag :start_city, nil, value: @token.start_city, id:"start_city", class: 'input-field' %>
+            <%= text_field_tag :end_city, nil, value: @token.end_city, id:"end_city", class: 'input-field' %>
           </div>
 
           <div id="form-cta" class="form-action">
@@ -45,20 +45,14 @@
             </div>
           <% end %>
       <% end %>
-            <div class="infospace">
-              <iframe style="padding-left: 25px;"width="450" height="750" frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" src="https://calculator.carbonfootprint.com/calculator.aspx?c=flight"></iframe>
-
+            <div class="infospace" style="padding-left: 4%; color: #9CB4BE;">
+              <p><strong>You'll save <%= @emissions %> CO2 by not taking the plane 🍃</strong></p>
+              <!-- <iframe style="padding-left: 25px;"width="450" height="750" frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" src="https://calculator.carbonfootprint.com/calculator.aspx?c=flight"></iframe> -->
             </div>
     </div>
 
     <div class="map-section">
       <div id="map" data-markers="<%= @markers.to_json %>" style="position: fixed"></div>
-<!--       <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
-      </script> -->
-<!--       <div id="content">
-        Hello world!
-      </div> -->
     </div>
 
 </div>

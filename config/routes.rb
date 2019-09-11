@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'poi_bookings/create'
   devise_for :users, controllers: {sessions: "sessions"}
   root to: 'pages#home'
 

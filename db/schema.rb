@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_155919) do
+ActiveRecord::Schema.define(version: 2019_09_10_140306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 2019_09_09_155919) do
     t.index ["user_id"], name: "index_journeys_on_user_id"
   end
 
+  create_table "poi_bookings", force: :cascade do |t|
+    t.bigint "connection_id"
+    t.bigint "poi_id"
+    t.boolean "booking_status"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_poi_bookings_on_connection_id"
+    t.index ["poi_id"], name: "index_poi_bookings_on_poi_id"
+  end
+
   create_table "pois", force: :cascade do |t|
     t.string "name"
     t.string "google_place_id"
@@ -93,4 +104,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_155919) do
 
   add_foreign_key "connections", "journeys"
   add_foreign_key "journeys", "users"
+  add_foreign_key "poi_bookings", "connections"
+  add_foreign_key "poi_bookings", "pois"
 end

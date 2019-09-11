@@ -24,9 +24,6 @@ class ConnectionsController < ApplicationController
     end
   end
 
-  end
-
-
   private
 
   def fetch_connection
@@ -37,6 +34,4 @@ class ConnectionsController < ApplicationController
   def connection_params
     params.require(:connection).permit(start_city, end_city, booking_status)
   end
-
-
 end
