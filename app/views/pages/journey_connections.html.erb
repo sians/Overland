@@ -31,11 +31,11 @@
               </div>
               <div class="d-flex icon-row" style="justify-content: space-between">
                 <div>
-                  <% if ["Train", "Long distance train", "High speed train"].include? connection[:transport_type] %>
+                  <% if Journey::TRAINS.include? connection[:transport_type] %>
                     <%= image_tag 'icons/train-icontrain.png' %>
-                  <% elsif ["Subway", "Commuter train", "Tram"].include? connection[:transport_type] %>
+                  <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
                     <%= image_tag 'icons/subway-iconsubway.png' %>
-                  <% elsif ["Bus"].include? connection[:transport_type] %>
+                  <% elsif Journey::BUS.include? connection[:transport_type] %>
                     <%= image_tag 'icons/bus-iconbus.png' %>
                   <% end %>
                 </div>
@@ -54,10 +54,6 @@
                 <%= hidden_field_tag "start_time", connection[:start_time] %>
                 <%= submit_tag "Check Recommendations", class: "btn btn-go btn-recommendations", data: { toggle: 'modal', target: '.bd-example-modal-lg'} %>
               <% end %>
-
-
-
-
 
               <%#= link_to 'Check Recommendations', bookings_path, class: 'btn btn-go' %>
             </div>
