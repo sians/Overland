@@ -12,7 +12,7 @@ class Journey < ApplicationRecord
 
   TRAINS = ["Train", "Long distance train", "High speed train"]
   SUBWAYS = ["Subway", "Commuter train", "Tram"]
-  BUS = ["Bus"]
+  BUS = ["Bus", "Intercity bus"]
 
   def generate_token
     begin
