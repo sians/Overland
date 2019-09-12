@@ -8,7 +8,7 @@ class PoiBookingsController < ApplicationController
     skip_authorization
     @poi_booking.booking_status = true
     if @poi_booking.save
-      redirect_to journey_path(@poi_booking.connection.journey_id), notice: 'Updated connection!'
+      redirect_to journey_path(@poi_booking.connection.journey_id), notice: 'Successfully booked!'
     else
       redirect_to journey_path(@poi_booking.connection.journey_id), notice: "Something went wrong. Couldn't update the connection!"
     end
