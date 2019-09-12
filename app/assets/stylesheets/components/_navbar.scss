@@ -41,7 +41,16 @@ padding-right: 30px;
   line-height: 75px;
 }
 
-.navbar h1 {
-  padding-left:30px;
-  padding-top: 5px;
+.logo {
+
+  padding-left: 30px;
+
+  img {
+    position: absolute;
+    top: 10px;
+  }
+  h1 {
+    padding-left: 50px;
+    padding-top: 5px;
+  }
 }
