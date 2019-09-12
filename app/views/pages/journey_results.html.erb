@@ -21,7 +21,7 @@
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
-                  <h6><strong><%= @token.start_city.split(',').first.capitalize %> to <%= @token.end_city.split(',').first.capitalize %></strong></h6>
+                  <h6><strong><%= Geocoder.search(@token.start_city).first.address.split(",").first %> to <%= Geocoder.search(@token.end_city).first.address.split(",").first %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
                 </div>
