@@ -13,7 +13,7 @@
     font-size: 25px;
 }
 
-.train {
+.zug {
     width: 6em;
     height: 6em;
     background:
@@ -27,7 +27,7 @@
     animation: train-animate 1.5s infinite ease-in-out;
 }
 
-@keyframes train-animate {
+@keyframes zug-animate {
     0%, 100% {
         transform: rotate(0deg);
     }
@@ -41,7 +41,7 @@
     }
 }
 
-.train::before {
+.zug::before {
     content: '';
     position: absolute;
     width: 80%;
@@ -52,7 +52,7 @@
     left: 10%;
 }
 
-.train::after {
+.zug::after {
     content: '';
     position: absolute;
     width: 25%;
