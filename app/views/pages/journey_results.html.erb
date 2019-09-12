@@ -46,11 +46,16 @@
           <% end %>
       <% end %>
             <div class="infocarbonspace">
-              <p>Stopping climate change is like the weather. We complain. But nothing changes. You make a difference. By avoiding the plane from <%= @token.start_city.split(',').first.capitalize %> to <%= @token.end_city.split(',').first.capitalize %> and using OverLand:</p>
+              <p>
+              <span>Stopping climate change is like the weather.</span>
+              <span>We complain. But nothing changes. <br></span>
+              <span>You make a difference. <br></span>
+              <span>By avoiding the plane from <%= @token.start_city.split(',').first.capitalize %> to <%= @token.end_city.split(',').first.capitalize %> and using Overland: <br></span>
+              </p>
 
-              <p><strong>You'll save </strong></p>
-              <p class="emissionkg"><%= @emissions %></p>
-               <p><strong>CO2 emissions 🍃</strong></p>
+              <p>You'll save </p>
+              <p id="emissionkg"><%= @emissions %></p>
+              <p>CO2 emissions 🍃</p>
 
 
               <p>This amounts to <strong><%= (@emissions.split(" ").first.to_i * 100.0 / 2700).round(2)  %> %</strong> of your yearly CO2 allowance.</p>

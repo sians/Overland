@@ -1,8 +1,10 @@
+
 #search-con-page {
-  padding: 30px 15px 30px;
+  padding: 25px 15px 15px;
 }
 
 #results-button.btn-go {
+  vertical-align: text-top;
   width: 100%;
 }
 
@@ -22,15 +24,8 @@
 
 #search-con-page {
 
-// #start_city.input-field {
-//   padding-right: 27px;
-// }
-
-// #end_city.input-field {
-//   padding-right: 27px;
-// }
-.ap-input-icon svg {
-  display: none;
-}
+  .ap-input-icon svg {
+    display: none;
+  }
 
 }
