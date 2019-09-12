@@ -112,6 +112,7 @@
   margin: 20px 20px 5px 20px;
   align-items: center;
   background-color: rgba(215,99,109,0.1);
+  border-radius: 5px;
   // border-bottom: 1px solid rgba(0,0,0,0.1);
   .line {
     width: 50px;
@@ -158,6 +159,8 @@
       img {
         height: 50px;
         width: 50px;
+      }
+      img.empty {
         cursor: pointer;
       }
     }
@@ -185,15 +188,41 @@
 }
 
 .connection-poi-card {
-  padding: 15px;
-  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  height: 150px;
   background-color: $light-gray;
   margin: 10px 20px;
   border-radius: 5px;
+  .bold-heading {
+    font-size: 20px;
+    font-weight: bold;
+  }
   p {
     padding: 0px;
     margin: 0px;
   }
+  .checkbox-toggle {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    .italic {
+      font-style: italic;
+    }
+    img {
+      height: 50px;
+      width: 50px;
+    }
+    img.empty {
+      cursor: pointer;
+    }
+  }
+}
+
+.connection-poi-card.booked {
+  background-color: rgba(100,185,150,0.1);
+
 }
 
 

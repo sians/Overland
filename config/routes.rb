@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'pois/index'
   post 'pois', to: 'pois#create', as: 'new_pois'
+  patch 'poi_booking/:id', to: 'poi_bookings#update', as: 'poi_booking'
 
   get 'bookings', to: 'journeys#bookings', as: 'bookings'
   patch 'journeys/:id/archive', to: 'journeys#archive', as: 'archive'
