@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="route-connection-cards">
-      <% @journey.connections.reverse.each do |connection| %>
+      <% @journey.connections.sort_by(&:start_time).each do |connection| %>
         <% @connection = connection %>
         <div class="route-connection-card <% if connection.booking_status %>booked<% end %>">
           <div class="line"></div>
@@ -55,7 +55,7 @@
                 <%= image_tag 'icons/tick.png' %>
               <% else %>
                 <%= link_to journey_connection_path(connection), method: :patch, title: 'change booking status' do %>
-                  <%= image_tag 'icons/empty.png' %>
+                  <%= image_tag 'icons/empty.png', class: 'empty' %>
                 <% end %>
               <% end %>
             </div>
@@ -66,18 +66,32 @@
         <% unless connection.poi_bookings.empty? %>
           <div class="your-recommendations">
 
-            <p class="italic">Your chosen recommendations for <%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.city %>:</p>
+            <p class="italic">Your chosen recommendations for <%= connection.destination_city%>:</p>
           </div>
           <% connection.poi_bookings.each do |poi_booking| %>
-            <div class="connection-poi-card">
-              <h5><%= poi_booking.poi.name %></h5>
-              <div class="poi-details">
-                <p><%= poi_booking.poi.address %></p>
-                <p>
-                  <%= poi_booking.poi.phone_number %>
-                  <%= link_to 'visit website', poi_booking.poi.website.to_s, target: '_blank' %>
-                </p>
+            <div class="connection-poi-card <% if poi_booking.booking_status %>booked<% end %>">
+
+              <div class="connection-poi-info">
+                <h5 class="bold-heading"><%= poi_booking.poi.name %></h5>
+                <div class="poi-details">
+                  <p><%= poi_booking.poi.address %>, <%= poi_booking.poi.phone_number %></p>
+                  <p>
+
+                    <%= link_to 'visit website', poi_booking.poi.website.to_s, target: '_blank' %>
+                  </p>
+                </div>
               </div>
+
+              <div class="checkbox-toggle">
+                <% if poi_booking.booking_status %>
+                  <%= image_tag 'icons/tick.png' %>
+                <% else %>
+                  <%= link_to poi_booking_path(poi_booking), method: :patch, title: 'change booking status' do %>
+                    <%= image_tag 'icons/empty.png', class: 'empty' %>
+                  <% end %>
+                <% end %>
+              </div>
+
             </div>
           <% end %>
         <% end %>
