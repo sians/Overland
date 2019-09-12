@@ -1,0 +1,14 @@
+<% @route_connections[0][:connections].each do |connection| %>
+  <% if connection.dig(:start_time) == id %>
+    <h4>Next stop <%= connection.dig(:destination_city) %></h4>
+  <% end %>
+<% end %>
+<div class="loader" style="margin-left:40%; margin-top: 10%;">
+  <div class="train"></div>
+    <div class="track">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+</div>
+

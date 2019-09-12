@@ -18,6 +18,7 @@
 
       <% route_connections.each do |route|%>
         <% route[1][:connections].each do |connection| %>
+        <%= render 'shared/modal', id: connection[:start_time] %>
           <div class="connection-card">
             <div class="connection-card-top">
               <h6><strong> <%= Time.at(connection[:start_time]).strftime("%A, %B %-d") %></strong></h6>
