@@ -8,9 +8,10 @@
   left:0;
   overflow: scroll;
   height: 95vh;
-  -webkit-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
-  -moz-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
-  box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
+  box-shadow: none;
+  // -webkit-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
+  // -moz-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
+  // box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.38);
 }
 
 .map-section {
