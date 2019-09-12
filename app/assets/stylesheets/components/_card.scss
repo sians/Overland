@@ -108,10 +108,11 @@
 
 .route-connection-card {
   display:flex;
-  padding: 15px;
+  padding: 25px;
   margin: 20px 20px 5px 20px;
   align-items: center;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  background-color: rgba(215,99,109,0.1);
+  // border-bottom: 1px solid rgba(0,0,0,0.1);
   .line {
     width: 50px;
   }
@@ -119,6 +120,47 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    .route-connection-info {
+      display: flex;
+      align-items: center;
+      .icons {
+        width:  60px;
+        margin-right: 50px;
+        .transport-icon {
+          height: 65px;
+          width: 65px;
+        }
+      }
+      .route-connection-details {
+        .bold-heading {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        p {
+          padding: 0px;
+          margin: 0px;
+        }
+        .buy-tickets {
+          margin: 40px 0px;
+        }
+        .arriving {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .checkbox-toggle {
+      display: flex;
+      align-items: center;
+      margin-right: 50px;
+      .italic {
+        font-style: italic;
+      }
+      img {
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+      }
+    }
     h4 {
       font-size: 20px;
     }
@@ -128,6 +170,11 @@
     }
   }
 }
+
+.route-connection-card.booked {
+  background-color: rgba(100,185,150,0.1);
+}
+
 
 // P O I   C A R D S  for   J O U R N E Y   S H O W    P A G E
 .your-recommendations {
