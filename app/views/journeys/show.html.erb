@@ -49,6 +49,24 @@
             </div> -->
           </div>
         </div>
+
+        <% unless connection.poi_bookings.empty? %>
+          <div class="your-recommendations">
+            <p class="italic">Your chosen recommendations for <%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.city %>:</p>
+          </div>
+          <% connection.poi_bookings.each do |poi_booking| %>
+            <div class="connection-poi-card">
+              <h5><%= poi_booking.poi.name %></h5>
+              <div class="poi-details">
+                <p><%= poi_booking.poi.address %></p>
+                <p>
+                  <%= poi_booking.poi.phone_number %>
+                  <%= link_to 'visit website', poi_booking.poi.website.to_s, target: '_blank' %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>

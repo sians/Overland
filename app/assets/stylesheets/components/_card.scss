@@ -104,12 +104,12 @@
 }
 
 
-// CONNECTION CARD ON JOURNEY SHOW PAGE
+// C O N N E C T I O N   C A R D   for   J O U R N E Y    S H O W    P A G E
 
 .route-connection-card {
   display:flex;
   padding: 15px;
-  margin: 20px;
+  margin: 20px 20px 5px 20px;
   align-items: center;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   .line {
@@ -128,6 +128,27 @@
     }
   }
 }
+
+// P O I   C A R D S  for   J O U R N E Y   S H O W    P A G E
+.your-recommendations {
+  padding: 10px 0px 0px 15px;
+  .italic {
+    font-style: italic;
+  }
+}
+
+.connection-poi-card {
+  padding: 15px;
+  height: 120px;
+  background-color: $light-gray;
+  margin: 10px 20px;
+  border-radius: 5px;
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
 
 // R E C O M M E N D A T I O N      C A R D S
 .recommendation-card {
