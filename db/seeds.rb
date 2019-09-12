@@ -12,10 +12,10 @@ User.destroy_all
 
 puts "Creating users.........."
 User.create(email: "1234@gmail.com", password: "Password", username: "1234", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
-User.create(email: "buck@gmail.com", password: "Password", username: "Buck", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
-User.create(email: "diego@gmail.com", password: "Password", username: "Diego", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
-User.create(email: "manny@gmail.com", password: "Password", username: "Manny", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
-User.create(email: "sid@gmail.com", password: "Password", username: "Sid", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567775143/tb8vgsugb0sj48cqwymj.jpg")
+User.create(email: "buck@gmail.com", password: "Password", username: "Buck", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1568303653/ns0up29sbmz4po3waila.jpg")
+User.create(email: "diego@gmail.com", password: "Password", username: "Diego", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1568195029/fnyngjlmpjy650rqqnw5.jpg")
+User.create(email: "manny@gmail.com", password: "Password", username: "Manny", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1568112199/izmemun1fyqjbi7vkgua.jpg")
+User.create(email: "sid@gmail.com", password: "Password", username: "Sid", remote_avatar_url: "https://res.cloudinary.com/djkvtunck/image/upload/v1567509263/sid_2_tkeg3h.png")
 puts "Users were created......"
 
 # puts "Creating journeys.........."
