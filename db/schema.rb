@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_140306) do
+ActiveRecord::Schema.define(version: 2019_09_12_103456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 2019_09_10_140306) do
     t.datetime "updated_at", null: false
     t.string "start_time"
     t.string "end_time"
-    t.integer "start_latitude"
-    t.integer "start_longitude"
-    t.integer "end_latitude"
-    t.integer "end_longitude"
+    t.float "start_latitude"
+    t.float "start_longitude"
+    t.float "end_latitude"
+    t.float "end_longitude"
     t.index ["journey_id"], name: "index_connections_on_journey_id"
   end
 
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_140306) do
   create_table "pois", force: :cascade do |t|
     t.string "name"
     t.string "google_place_id"
-    t.string "latitude"
-    t.string "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.string "address"
     t.integer "price_level"
     t.string "category"
