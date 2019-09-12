@@ -1,4 +1,36 @@
 <div class="modal-ajax-content">
+
+
+  <h4>Accomodation</h4>
+  <div class="accomodation-recommendations">
+    <div class="row">
+      <% lodgings.each do |recommendation| %>
+        <div class="col-6">
+          <div class="recommendation-card">
+            <div class="recommendation-card-header">
+              <h5><%= recommendation.name %></h5>
+            </div>
+
+            <div class="recommendation-card-content">
+              <p><%= recommendation.address %></p>
+              <p>
+                <% if recommendation.phone_number.present? %>
+                  <%= recommendation.phone_number %>
+                   —
+                 <% end %>
+                <% if recommendation.website.present? %>
+                  <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
+                <% end %>
+              </p>
+              <p class="add-poi" id="<%= start_time %>,<%= recommendation.id %>">add to list</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
   <h4>Restaurants</h4>
   <div class="food-recommendations">
     <div class="row">
@@ -27,29 +59,5 @@
       <% end %>
     </div>
   </div>
-
-  <h4>Accomodation</h4>
-  <div class="accomodation-recommendations">
-    <div class="row">
-      <% lodgings.each do |recommendation| %>
-        <div class="col-6">
-          <div class="recommendation-card">
-            <h5><%= recommendation.name %></h5>
-            <p><%= recommendation.address %></p>
-            <p>
-              <% if recommendation.phone_number.present? %>
-                <%= recommendation.phone_number %>
-                 —
-               <% end %>
-              <% if recommendation.website.present? %>
-                <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
-              <% end %>
-            </p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
 
 </div>
