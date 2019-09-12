@@ -1,5 +1,5 @@
 class ConnectionsController < ApplicationController
-  before_action :fetch_connection, only: %i[edit index]
+  before_action :fetch_connection, only: %i[edit index book]
 
   def index
     @journey = Journey.find(params[:journey_id])
@@ -28,13 +28,13 @@ class ConnectionsController < ApplicationController
   end
 
   def update
-    @connection = Connection.find(params[:id])
+    @connection = Connection.find(params[:journey_id])
     authorize @connection
-    @connection.booking_status = !@connection.booking_status
+    @connection.booking_status = true
     if @connection.save
-      redirect_to journey_path(@connection.journey_id), notice: 'Updated connection'
+      redirect_to journey_path(@connection.journey_id), notice: 'Updated connection!'
     else
-      render :new
+      redirect_to journey_path(@connection.journey_id), notice: "Something went wrong. Couldn't update the connection!"
     end
   end
 
