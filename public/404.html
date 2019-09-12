@@ -11,6 +11,10 @@
       line-height: 1.5;
     }
 
+    h1 {
+      margin: auto;
+    }
+
     a {
       color: #fff;
       text-decoration: none;
@@ -27,8 +31,8 @@
       }
 
       .content {
-        width: 500px;
-        height: 300px;
+        width: 750px;
+        height: 450px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -75,16 +79,8 @@
       }
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9">
-    import Typed from 'typed.js';
 
-    var options = {
-      strings: ["<h1>404</h1>", "Sometimes you take the road less travelled …", "We're not sure how you got here, but you should head <a href="/">home</a>."],
-      typeSpeed: 40
-    }
-
-    var typed = new Typed(".element", options);
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
 </head>
 
 <body class="rails-default-error-page">
@@ -95,7 +91,21 @@
     <span class="min button"></span>
     <span class="max button"></span>
   </div>
-  <div class="text"></div>
+  <div class="text">
+    <span id="404"></span>
+  </div>
 </div>
+
+  <script>
+    const loadDynamicBannerText = () => {
+      const typed = document.getElementById('404');
+      new Typed(typed, {
+        strings: ["<h1>404</h1> <br>Sometimes you take the road less travelled..^1000 <br>  <br> We're not sure how you got here, but you should head <a>home</a>."],
+        typeSpeed: 50,
+        loop: true
+      });
+    }
+    loadDynamicBannerText();
+  </script>
 </body>
 </html>

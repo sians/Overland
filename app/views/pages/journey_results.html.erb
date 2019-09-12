@@ -21,7 +21,7 @@
             <div class="journey-card">
               <div class="journey-card-top">
                 <div class="journey-card-content">
-                  <h6><strong><%= @token.start_city.split(',').first.capitalize %> to <%= @token.end_city.split(',').first.capitalize %></strong></h6>
+                  <h6><strong><%= Geocoder.search(@token.start_city).first.address.split(",").first %> to <%= Geocoder.search(@token.end_city).first.address.split(",").first %></strong></h6>
                   <p><strong><%= route[1][:total_duration] %>
                 </strong></p>
                 </div>
@@ -47,7 +47,12 @@
       <% end %>
             <div class="infocarbonspace">
               <p>Stopping climate change is like the weather. We complain. But nothing changes. You make a difference. By avoiding the plane from <%= @token.start_city.split(',').first.capitalize %> to <%= @token.end_city.split(',').first.capitalize %> and using OverLand:</p>
-              <p class="savings" style="justify-content: center;"><strong>You'll save <%= @emissions %> CO2 emissions 🍃</strong></p>
+
+              <p><strong>You'll save </strong></p>
+              <p class="emissionkg"><%= @emissions %></p>
+               <p><strong>CO2 emissions 🍃</strong></p>
+
+
               <p>This amounts to <strong><%= (@emissions.split(" ").first.to_i * 100.0 / 2700).round(2)  %> %</strong> of your yearly CO2 allowance.</p>
               <%= image_tag 'icons/ecology.png' %>
               <p class="thanks">Thank you for helping us make the world a greener place</p>

@@ -10,46 +10,77 @@
         <h1><%= @journey.name %></h1>
         <p><%= @journey.total_duration %></p>
       </div>
-      <%= link_to 'View Bookings', bookings_path, class: 'btn btn-book' %>
     </div>
     <div class="route-connection-cards">
       <% @journey.connections.reverse.each do |connection| %>
         <% @connection = connection %>
-        <div class="route-connection-card">
+        <div class="route-connection-card <% if connection.booking_status %>booked<% end %>">
           <div class="line"></div>
           <div class="route-connection-content d-flex">
-            <div class="d-block">
-              <div data-toggle="tooltip" title="<%=connection[:transport_type]%>">
-                <% if Journey::TRAINS.include? connection[:transport_type] %>
-                <%= image_tag 'icons/train-icontrain.png' %>
-                <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
-                <%= image_tag 'icons/subway-iconsubway.png' %>
-                <% elsif Journey::BUS.include? connection[:transport_type] %>
-                <%= image_tag 'icons/bus-iconbus.png' %>
+
+            <div class="route-connection-info">
+              <div class="icons d-block">
+                <div data-toggle="tooltip" title="<%=connection[:transport_type]%>">
+                  <% if Journey::TRAINS.include? connection[:transport_type] %>
+                  <%= image_tag 'icons/train-icontrain.png', class: 'transport-icon' %>
+                  <% elsif Journey::SUBWAYS.include? connection[:transport_type] %>
+                  <%= image_tag 'icons/subway-iconsubway.png', class: 'transport-icon' %>
+                  <% elsif Journey::BUS.include? connection[:transport_type] %>
+                  <%= image_tag 'icons/bus-iconbus.png', class: 'transport-icon' %>
+                  <% end %>
+                 </div>
+                 <div class="duration">
+                  <strong> <%= (Time.at(connection[:end_time].to_i) - (connection[:start_time].to_i)).utc.strftime("%Hh%Mm") %></strong>
+                 </div>
+              </div>
+              <div class="route-connection-details">
+                <div class="departing">
+                  <p><span class="bold-heading"><%= Time.at(connection[:start_time].to_i).strftime("%l.%M %P") %></span> on <%= Time.at(connection[:start_time].to_i).strftime("%A, %B %-d") %></p>
+
+                  <p><%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.country %> - <strong> <%= connection[:origin_city] %></strong></p>
+                </div>
+                <p class="buy-tickets">
+                  Buy tickets with:
+                  <%= link_to connection[:provider], connection[:provider_website], target: :_blank %>
+                </p>
+                <div class="arriving">
+                  <p><span class="bold-heading"><%= Time.at(connection[:end_time].to_i).strftime("%l.%M %P") %></span> on <%= Time.at(connection[:start_time].to_i).strftime("%A, %B %-d") %></p>
+
+                  <p><%= Geocoder.search([connection[:end_latitude],connection[:end_longitude]]).first.country %> - <strong> <%= connection[:destination_city] %></strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="checkbox-toggle">
+              <% if connection.booking_status %>
+                <%= image_tag 'icons/tick.png' %>
+              <% else %>
+                <%= link_to journey_connection_path(connection), method: :patch, title: 'change booking status' do %>
+                  <%= image_tag 'icons/empty.png' %>
                 <% end %>
-               </div>
-               <div class="duration">
-                <strong> <%= (Time.at(connection[:end_time].to_i) - (connection[:start_time].to_i)).utc.strftime("%Hh%Mm") %></strong>
-               </div>
-            </div>
-            <div class="route-connections">
-              <h4><%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.country %> - <strong> <%= connection[:origin_city] %></strong></h4>
-              <p></p>
-              <h4><%= Geocoder.search([connection[:end_latitude],connection[:end_longitude]]).first.country %> - <strong> <%= connection[:destination_city] %></strong></h4>
-              <p></p>
-            </div>
-            <div>
-              <p>Service Provider</p>
-              <%= link_to connection[:provider], connection[:provider_website], target: :_blank %>
-            </div>
-<!--             <div>
-              <%= simple_form_for @connection do |f| %>
-                <%= f.input :booking_status, label: "Already Booked?" %>
-                <%= f.button :submit, class:"btn btn-go" %>
               <% end %>
-            </div> -->
+            </div>
+
           </div>
         </div>
+
+        <% unless connection.poi_bookings.empty? %>
+          <div class="your-recommendations">
+
+            <p class="italic">Your chosen recommendations for <%= Geocoder.search([connection[:start_latitude],connection[:start_longitude]]).first.city %>:</p>
+          </div>
+          <% connection.poi_bookings.each do |poi_booking| %>
+            <div class="connection-poi-card">
+              <h5><%= poi_booking.poi.name %></h5>
+              <div class="poi-details">
+                <p><%= poi_booking.poi.address %></p>
+                <p>
+                  <%= poi_booking.poi.phone_number %>
+                  <%= link_to 'visit website', poi_booking.poi.website.to_s, target: '_blank' %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>

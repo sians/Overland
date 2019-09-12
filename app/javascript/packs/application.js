@@ -2,7 +2,9 @@ import "bootstrap";
 import { initAutocomplete } from "../plugins/init_autocomplete.js";
 import "../plugins/flatpickr";
 import { previewImageOnFileSelect } from "../components/photo_preview.js";
+import { loadDynamicBannerText } from '../plugins/404.js';
 
+loadDynamicBannerText();
 initAutocomplete();
 
 import GMaps from 'gmaps/gmaps.js';

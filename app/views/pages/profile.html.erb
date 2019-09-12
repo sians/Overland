@@ -33,7 +33,7 @@
               <% unless journey.archived %>
                 <div class="my-route-card">
                   <div class="my-route-card-header">
-                    <h4><%= journey[:start_city].split(",").first %> – <%= journey[:end_city].split(",").first %></h4>
+                    <h4><%= journey.name %></h4>
 
                     <p><%= journey[:total_duration] %></p>
                     <%= link_to 'View trip', journey_path(journey.id), class: 'btn btn-go' %>
