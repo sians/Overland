@@ -1,7 +1,7 @@
 <div class="modal-ajax-content">
 
 
-  <h4>Accomodation</h4>
+  <h4>Accommodation</h4>
   <div class="accomodation-recommendations">
     <div class="row">
       <% lodgings.each do |recommendation| %>
@@ -12,17 +12,20 @@
             </div>
 
             <div class="recommendation-card-content">
-              <p><%= recommendation.address %></p>
-              <p>
-                <% if recommendation.phone_number.present? %>
-                  <%= recommendation.phone_number %>
-                   —
-                 <% end %>
-                <% if recommendation.website.present? %>
-                  <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
-                <% end %>
-              </p>
-              <p class="add-poi" id="<%= start_time %>,<%= recommendation.id %>">add to list</p>
+              <div>
+                <p><%= recommendation.address %></p>
+                <p>
+                  <% if recommendation.phone_number.present? %>
+                    <%= recommendation.phone_number %>
+                     —
+                   <% end %>
+                  <% if recommendation.website.present? %>
+                    <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
+                  <% end %>
+                </p>
+                <!-- <p ">add to list</p> -->
+            </div>
+              <i class="fas fa-plus-circle add-poi" id="<%= start_time %>,<%= recommendation.id %>"></i>
             </div>
           </div>
         </div>
@@ -37,22 +40,24 @@
       <% food.each do |recommendation| %>
         <div class="col-6">
           <div class="recommendation-card">
-            <div class="recommendation-card-header">
+            <div class="recommendation-card-header" style="display: flex; justify-content: space-between">
               <h5><%= recommendation.name %></h5>
+              <i class="fas fa-plus-circle add-poi" id="<%=  start_time %>,<%= recommendation.id %>"></i>
             </div>
 
             <div class="recommendation-card-content">
-              <p><%= recommendation.address %></p>
-              <p>
-                <% if recommendation.phone_number.present? %>
-                  <%= recommendation.phone_number %>
-                   —
-                 <% end %>
-                <% if recommendation.website.present? %>
-                  <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
-                <% end %>
-              </p>
-              <p class="add-poi" id="<%= start_time %>,<%= recommendation.id %>">add to list</p>
+              <div>
+                <p><%= recommendation.address %></p>
+                <p>
+                  <% if recommendation.phone_number.present? %>
+                    <%= recommendation.phone_number %>
+                     —
+                   <% end %>
+                  <% if recommendation.website.present? %>
+                    <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
+                  <% end %>
+                </p>
+              </div>
             </div>
           </div>
         </div>
