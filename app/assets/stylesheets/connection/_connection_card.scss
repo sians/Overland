@@ -6,7 +6,6 @@
 .connection-card {
   border-color: #F7F7F7;
   border-radius: 5px;
-  margin-top: 50px;
 
   .connection-card-top {
     height: 45px;
@@ -15,10 +14,6 @@
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-
-    .price {
-    // padding-right: 80px;
-    }
 
     h6 {
       align-self: flex-end;
