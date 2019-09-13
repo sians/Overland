@@ -12,6 +12,15 @@
   top: 100px;
 }
 
+.sidebar1 {
+  width: 600px;
+  position: relative;
+  left:0;
+  overflow: scroll;
+  height: 95vh;
+  box-shadow: none;
+}
+
 .map-section {
   position: relative;
   right: 0;
