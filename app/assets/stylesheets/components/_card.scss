@@ -229,10 +229,11 @@
 // R E C O M M E N D A T I O N      C A R D S
 .recommendation-card {
   background-color: $light-gray;
-  width: 380px;
+  width: 85%;
   height: 170px;
   margin: 15px 0px 15px 20px;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px;
   .recommendation-card-header {
 
     background-color: gray;
@@ -260,6 +261,7 @@
 .modal-ajax-content {
   h4:not(:first-child) {
     margin-top: 30px;
+    margin-bottom: 30px;
   }
   a {
     color: $overland;
