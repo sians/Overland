@@ -9,9 +9,11 @@
 
   .connection-card-top {
     height: 45px;
-    background: rgba(0,0,0,0.5);
+    // background: rgba(0,0,0,0.5);
+    background-color: $light-gray;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 
     .price {
     // padding-right: 80px;
@@ -22,7 +24,7 @@
       margin: 0px;
       padding: 10px;
       padding-left: 20px;
-      color: white;
+      color: $soft-blue;
     }
 
     p {
@@ -46,7 +48,7 @@
       text-align: right;
       padding-right: 20px;
       font-size: large;
-      color: $dark-grey;
+      color: $soft-blue;
     }
 
     .station {
