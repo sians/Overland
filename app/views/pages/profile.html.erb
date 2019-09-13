@@ -6,8 +6,7 @@
     </div>
     <div class="user-info">
       <h3 class="user-username"><%= current_user.username %></h3>
-      <p class="user-review-num">Reviews</p>
-      <p class="user-trip-num"><span class="thicker"><%= current_user.journeys.size %></span> Saved Trips</p>
+      <p class="user-trip-num"><span class="thicker"><%= current_user.journeys.size %></span> Saved Journeys</p>
     </div>
   </div>
 
@@ -17,7 +16,7 @@
       <ul class="nav tabs-cyan" id="myClassicTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link  waves-light active show" id="profile-tab-classic" data-toggle="tab" href="#profile-classic"
-            role="tab" aria-controls="profile-classic" aria-selected="true">My Routes</a>
+            role="tab" aria-controls="profile-classic" aria-selected="true">My Journeys</a>
         </li>
         <li class="nav-item">
           <a class="nav-link waves-light" id="follow-tab-classic" data-toggle="tab" href="#follow-classic" role="tab"
@@ -36,7 +35,7 @@
                     <h4><%= journey.name %></h4>
 
                     <p><%= journey[:total_duration] %></p>
-                    <%= link_to 'View trip', journey_path(journey.id), class: 'btn btn-go' %>
+                    <%= link_to 'View Journey', journey_path(journey.id), class: 'btn btn-go' %>
                   </div>
                   <div class="my-route-card-content">
 
@@ -83,7 +82,7 @@
                   <h4><%= journey[:start_city].split(",").first %> – <%= journey[:end_city].split(",").first %></h4>
 
                   <p><%= journey[:total_duration] %></p>
-                  <%= link_to 'View trip', journey_path(journey.id), class: 'btn btn-cancel' %>
+                  <%= link_to 'View Journey', journey_path(journey.id), class: 'btn btn-cancel' %>
                 </div>
                 <div class="my-route-card-content">
 
