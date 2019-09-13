@@ -1,19 +1,21 @@
 .modal-dialog {
-  margin: 100px 0px 0px 520px;
-}
-
-.modal-title {
+  margin: 130px 0px 0px 494px;
 }
 
 .modal-content {
-  width: 900px;
+  margin-left: 12px;
+  width: 135.5%;
   height: 80vh;
+}
+
+.modal-title {
 }
 
 .modal-body {
   overflow: scroll;
   h4 {
     text-align: center;
+    margin: 30px 20px;
   }
 }
 
@@ -23,4 +25,17 @@
   color: #fec66a;
   margin-right: 20px;
 
+}
+
+.accomodation-recommendations {
+  padding-left: 4%;
+}
+
+.food-recommendations {
+  padding-left: 4%;
+}
+
+.close {
+  font-size: xx-large;
+  font-color: $overland;
 }
