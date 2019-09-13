@@ -235,7 +235,7 @@
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px;
   .recommendation-card-header {
-
+    border-radius: 5px 5px 0px 0px;
     background-color: gray;
 
     h5 {
@@ -250,11 +250,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-
     p {
       margin: 0px;
       padding: 0px;
     }
+    // .add-poi {
+    //   font-size: 30px;
+    //   color: #fec66a;
+    //   margin-right: 20px;
+    // }
   }
 }
 
@@ -271,7 +275,8 @@
 .recommendation-card.selected {
   .recommendation-card-header {
     h5 {
-      background-color: #AED1B8;
+      background-color: $overland;
+      color: $dark-grey;
     }
   }
 }

@@ -40,9 +40,8 @@
       <% food.each do |recommendation| %>
         <div class="col-6">
           <div class="recommendation-card">
-            <div class="recommendation-card-header" style="display: flex; justify-content: space-between">
+            <div class="recommendation-card-header">
               <h5><%= recommendation.name %></h5>
-              <i class="fas fa-plus-circle add-poi" id="<%=  start_time %>,<%= recommendation.id %>"></i>
             </div>
 
             <div class="recommendation-card-content">
@@ -57,7 +56,9 @@
                     <%= link_to "visit website", recommendation.website.to_s, target: "_blank" %>
                   <% end %>
                 </p>
-              </div>
+                <!-- <p ">add to list</p> -->
+            </div>
+              <i class="fas fa-plus-circle add-poi" id="<%= start_time %>,<%= recommendation.id %>"></i>
             </div>
           </div>
         </div>
